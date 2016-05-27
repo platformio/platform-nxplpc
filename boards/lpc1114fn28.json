@@ -1,0 +1,17 @@
+{
+  "build": {
+    "cpu": "cortex-m0", 
+    "f_cpu": "48000000L", 
+    "mcu": "lpc1114fn28"
+  }, 
+  "frameworks": [
+    "mbed"
+  ], 
+  "name": "Switch Science mbed LPC1114FN28", 
+  "upload": {
+    "maximum_ram_size": 4096, 
+    "maximum_size": 32768
+  }, 
+  "url": "https://developer.mbed.org/platforms/LPC1114FN28/", 
+  "vendor": "Switch Science"
+}
