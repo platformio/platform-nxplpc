@@ -36,7 +36,7 @@
     "framework-mbed": {
       "type": "framework",
       "optional": true,
-      "version": "~1.121.0"
+      "version": "~2.123.0"
     }
   }
 }
