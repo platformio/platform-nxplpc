@@ -1,0 +1,17 @@
+{
+  "build": {
+    "cpu": "cortex-m0",
+    "f_cpu": "50000000L",
+    "mcu": "lpc11u24"
+  },
+  "frameworks": [
+    "mbed"
+  ],
+  "name": "mBuino",
+  "upload": {
+    "maximum_ram_size": 10240,
+    "maximum_size": 32768
+  },
+  "url": "https://developer.mbed.org/platforms/mBuino/",
+  "vendor": "GHI Electronics"
+}

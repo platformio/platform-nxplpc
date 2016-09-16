@@ -1,0 +1,17 @@
+{
+  "build": {
+    "cpu": "cortex-m0",
+    "f_cpu": "48000000L",
+    "mcu": "lpc11u24"
+  },
+  "frameworks": [
+    "mbed"
+  ],
+  "name": "ARM mbed LPC11U24 (+CAN)",
+  "upload": {
+    "maximum_ram_size": 8192,
+    "maximum_size": 32768
+  },
+  "url": "https://developer.mbed.org/handbook/mbed-NXP-LPC11U24",
+  "vendor": "NXP"
+}

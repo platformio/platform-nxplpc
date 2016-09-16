@@ -1,0 +1,17 @@
+{
+  "build": {
+    "cpu": "cortex-m0",
+    "f_cpu": "48000000L",
+    "mcu": "lpc11u37"
+  },
+  "frameworks": [
+    "mbed"
+  ],
+  "name": "Seeed Arch GPRS V2",
+  "upload": {
+    "maximum_ram_size": 10240,
+    "maximum_size": 131072
+  },
+  "url": "https://www.seeedstudio.com/Arch-GPRS-V2-p-2026.html",
+  "vendor": "SeeedStudio"
+}
