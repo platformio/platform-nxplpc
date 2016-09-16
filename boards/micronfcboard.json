@@ -1,0 +1,17 @@
+{
+  "build": {
+    "cpu": "cortex-m0",
+    "f_cpu": "48000000L",
+    "mcu": "lpc11u34"
+  },
+  "frameworks": [
+    "mbed"
+  ],
+  "name": "MicroNFCBoard",
+  "upload": {
+    "maximum_ram_size": 10240,
+    "maximum_size": 49152
+  },
+  "url": "https://developer.mbed.org/platforms/MicroNFCBoard/",
+  "vendor": "NXP"
+}

@@ -1,0 +1,17 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "30000000L",
+    "mcu": "lpc812"
+  },
+  "frameworks": [
+    "mbed"
+  ],
+  "name": "CoCo-ri-Co!",
+  "upload": {
+    "maximum_ram_size": 4096,
+    "maximum_size": 16384
+  },
+  "url": "https://developer.mbed.org/platforms/CoCo-ri-Co/",
+  "vendor": "Elektor Labs"
+}

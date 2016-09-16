@@ -1,0 +1,17 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "f_cpu": "204000000L",
+    "mcu": "lpc4330"
+  },
+  "frameworks": [
+    "mbed"
+  ],
+  "name": "Bambino-210E",
+  "upload": {
+    "maximum_ram_size": 270336,
+    "maximum_size": 8388608
+  },
+  "url": "https://developer.mbed.org/platforms/Micromint-Bambino-210E/",
+  "vendor": "Micromint"
+}

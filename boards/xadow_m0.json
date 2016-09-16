@@ -7,11 +7,11 @@
   "frameworks": [
     "mbed"
   ],
-  "name": "EA LPC11U35 QuickStart Board",
+  "name": "Seeed Xadow M0",
   "upload": {
     "maximum_ram_size": 10240,
     "maximum_size": 65536
   },
-  "url": "https://developer.mbed.org/platforms/EA-LPC11U35/",
-  "vendor": "Embedded Artists"
+  "url": "https://developer.mbed.org/platforms/Seeed-Xadow-M0/",
+  "vendor": "SeeedStudio"
 }

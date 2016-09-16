@@ -1,0 +1,17 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "30000000L",
+    "mcu": "lpc812"
+  },
+  "frameworks": [
+    "mbed"
+  ],
+  "name": "NXP LPC800-MAX",
+  "upload": {
+    "maximum_ram_size": 4096,
+    "maximum_size": 16384
+  },
+  "url": "https://developer.mbed.org/platforms/NXP-LPC800-MAX/",
+  "vendor": "NXP"
+}

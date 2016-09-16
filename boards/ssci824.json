@@ -1,0 +1,17 @@
+{
+  "build": {
+    "cpu": "cortex-m0plus",
+    "f_cpu": "30000000L",
+    "mcu": "lpc824"
+  },
+  "frameworks": [
+    "mbed"
+  ],
+  "name": "Switch Science mbed LPC824",
+  "upload": {
+    "maximum_ram_size": 8192,
+    "maximum_size": 32768
+  },
+  "url": "https://developer.mbed.org/platforms/Switch-Science-mbed-LPC824/",
+  "vendor": "Switch Science"
+}
