@@ -5,11 +5,11 @@
 The NXP LPC is a family of 32-bit microcontroller integrated circuits by NXP Semiconductors. The LPC chips are grouped into related series that are based around the same 32-bit ARM processor core, such as the Cortex-M4F, Cortex-M3, Cortex-M0+, or Cortex-M0. Internally, each microcontroller consists of the processor core, static RAM memory, flash memory, debugging interface, and various peripherals.
 
 * [Home](http://platformio.org/platforms/nxplpc) (home page in PlatformIO Platform Registry)
-* [Documentation](http://docs.platformio.org/en/latest/platforms/nxplpc.html) (advanced usage, packages, boards, frameworks, etc.)
+* [Documentation](http://docs.platformio.org/en/stable/platforms/nxplpc.html) (advanced usage, packages, boards, frameworks, etc.)
 
 # Usage
 
-1. [Install PlatformIO CLI](http://docs.platformio.org/en/latest/installation.html)
+1. [Install PlatformIO CLI](http://docs.platformio.org/en/stable/installation.html)
 2. Install NXP LPC development platform:
 ```bash
 # install the latest stable version
