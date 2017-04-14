@@ -4,6 +4,30 @@
     "f_cpu": "204000000L",
     "mcu": "lpc4330"
   },
+  "debug": {
+    "tools": {
+      "cmsis-dap": {
+        "server": {
+          "package": "tool-openocd",
+          "executable": "bin/openocd",
+          "arguments": [
+            "-f", "scripts/interface/cmsis-dap.cfg",
+            "-c", "set CHIPNAME lpc43xx; set CHIPSERIES lpc4000; if { ![info exists WORKAREASIZE] } { set WORKAREASIZE 0x4000 }",
+            "-f", "scripts/target/lpc1xxx.cfg"
+          ]
+        },
+        "gdbinit": [
+          "target remote :3333",
+          "file $PROG_PATH",
+          "load $PROG_PATH",
+          "monitor init",
+          "monitor reset halt",
+          "tb main"
+        ],
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "mbed"
   ],

@@ -1,17 +1,40 @@
 {
   "build": {
-    "cpu": "cortex-m4", 
-    "f_cpu": "120000000L", 
+    "cpu": "cortex-m4",
+    "f_cpu": "120000000L",
     "mcu": "lpc4088"
-  }, 
+  },
+  "debug": {
+    "tools": {
+      "cmsis-dap": {
+        "server": {
+          "package": "tool-openocd",
+          "executable": "bin/openocd",
+          "arguments": [
+            "-f", "scripts/interface/cmsis-dap.cfg",
+            "-f", "scripts/target/lpc40xx.cfg"
+          ]
+        },
+        "gdbinit": [
+          "target remote :3333",
+          "file $PROG_PATH",
+          "load $PROG_PATH",
+          "monitor init",
+          "monitor reset halt",
+          "tb main"
+        ],
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "mbed"
-  ], 
-  "name": "Embedded Artists LPC4088 Display Module", 
+  ],
+  "name": "Embedded Artists LPC4088 Display Module",
   "upload": {
-    "maximum_ram_size": 98304, 
+    "maximum_ram_size": 98304,
     "maximum_size": 524288
-  }, 
-  "url": "https://developer.mbed.org/platforms/EA-LPC4088-Display-Module/", 
+  },
+  "url": "https://developer.mbed.org/platforms/EA-LPC4088-Display-Module/",
   "vendor": "Embedded Artists"
 }
