@@ -4,6 +4,18 @@
     "f_cpu": "48000000L",
     "mcu": "lpc11u24"
   },
+  "debug": {
+    "tools": {
+      "cmsis-dap": {
+        "server": {
+          "package": "tool-openocd",
+          "executable": "bin/openocd",
+          "arguments": ["-f", "scripts/board/mbed-lpc11u24.cfg"]
+        },
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "mbed"
   ],

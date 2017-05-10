@@ -3,7 +3,19 @@
     "cpu": "cortex-m3", 
     "f_cpu": "96000000L", 
     "mcu": "lpc1768"
-  }, 
+  },
+  "debug": {
+    "tools": {
+      "cmsis-dap": {
+        "server": {
+          "package": "tool-openocd",
+          "executable": "bin/openocd",
+          "arguments": ["-f", "scripts/board/mbed-lpc1768.cfg"]
+        },
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "mbed"
   ], 

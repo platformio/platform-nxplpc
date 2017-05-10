@@ -4,6 +4,21 @@
     "f_cpu": "50000000L",
     "mcu": "lpc11u68"
   },
+  "debug": {
+    "tools": {
+      "cmsis-dap": {
+        "server": {
+          "package": "tool-openocd",
+          "executable": "bin/openocd",
+          "arguments": [
+            "-f", "scripts/interface/cmsis-dap.cfg",
+            "-f", "scripts/target/lpc11xx.cfg"
+          ]
+        },
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "mbed"
   ],
