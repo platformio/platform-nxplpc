@@ -1,7 +1,7 @@
 {
   "build": {
-    "cpu": "cortex-m0", 
-    "f_cpu": "48000000L", 
+    "cpu": "cortex-m0",
+    "f_cpu": "48000000L",
     "mcu": "lpc11u24"
   },
   "debug": {
@@ -12,18 +12,19 @@
           "executable": "bin/openocd",
           "arguments": ["-f", "scripts/board/mbed-lpc11u24.cfg"]
         },
+        "preload": true,
         "onboard": true
       }
     }
   },
   "frameworks": [
     "mbed"
-  ], 
-  "name": "NXP mbed LPC11U24", 
+  ],
+  "name": "NXP mbed LPC11U24",
   "upload": {
-    "maximum_ram_size": 8192, 
+    "maximum_ram_size": 8192,
     "maximum_size": 32768
-  }, 
-  "url": "https://developer.mbed.org/platforms/mbed-LPC11U24/", 
+  },
+  "url": "https://developer.mbed.org/platforms/mbed-LPC11U24/",
   "vendor": "NXP"
 }

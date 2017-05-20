@@ -16,6 +16,7 @@
             "-f", "scripts/target/lpc1xxx.cfg"
           ]
         },
+        "preload": true,
         "onboard": true
       }
     }

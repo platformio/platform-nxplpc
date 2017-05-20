@@ -15,6 +15,7 @@
             "-f", "scripts/target/lpc2460.cfg"
           ]
         },
+        "preload": true,
         "onboard": true
       }
     }
