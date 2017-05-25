@@ -1,17 +1,33 @@
 {
   "build": {
-    "cpu": "cortex-m0", 
-    "f_cpu": "48000000L", 
+    "cpu": "cortex-m0",
+    "f_cpu": "48000000L",
     "mcu": "lpc1114fn28"
-  }, 
+  },
+  "debug": {
+    "tools": {
+      "cmsis-dap": {
+        "server": {
+          "package": "tool-openocd",
+          "executable": "bin/openocd",
+          "arguments": [
+            "-f", "scripts/interface/cmsis-dap.cfg",
+            "-f", "scripts/target/lpc11xx.cfg"
+          ]
+        },
+        "preload": true,
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "mbed"
-  ], 
-  "name": "Switch Science mbed LPC1114FN28", 
+  ],
+  "name": "Switch Science mbed LPC1114FN28",
   "upload": {
-    "maximum_ram_size": 4096, 
+    "maximum_ram_size": 4096,
     "maximum_size": 32768
-  }, 
-  "url": "https://developer.mbed.org/platforms/LPC1114FN28/", 
+  },
+  "url": "https://developer.mbed.org/platforms/LPC1114FN28/",
   "vendor": "Switch Science"
 }

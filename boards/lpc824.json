@@ -4,6 +4,22 @@
     "f_cpu": "30000000L",
     "mcu": "lpc824"
   },
+  "debug": {
+    "tools": {
+      "cmsis-dap": {
+        "server": {
+          "package": "tool-openocd",
+          "executable": "bin/openocd",
+          "arguments": [
+            "-f", "scripts/interface/cmsis-dap.cfg",
+            "-f", "scripts/target/lpc8xx.cfg"
+          ]
+        },
+        "preload": true,
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "mbed"
   ],

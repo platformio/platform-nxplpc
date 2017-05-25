@@ -15,6 +15,7 @@
             "-f", "scripts/target/lpc40xx.cfg"
           ]
         },
+        "preload": true,
         "onboard": true
       }
     }
