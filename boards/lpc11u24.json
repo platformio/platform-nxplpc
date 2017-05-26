@@ -12,7 +12,7 @@
           "executable": "bin/openocd",
           "arguments": ["-f", "scripts/board/mbed-lpc11u24.cfg"]
         },
-        "preload": true,
+        "load_cmd": "preload",
         "onboard": true
       }
     }
