@@ -20,7 +20,7 @@ How to build PlatformIO based project
 .. code-block:: bash
 
     # Change directory to example
-    > cd platform-nxplpc/examples/mbed-http-client
+    > cd platform-nxplpc/examples/mbed-rtos-ethernet
 
     # Build project
     > platformio run

@@ -5,7 +5,7 @@ python:
 env:
   - PLATFORMIO_PROJECT_DIR=examples/mbed-blink
   - PLATFORMIO_PROJECT_DIR=examples/mbed-dsp
-  - PLATFORMIO_PROJECT_DIR=examples/mbed-http-client
+  - PLATFORMIO_PROJECT_DIR=examples/mbed-events
   - PLATFORMIO_PROJECT_DIR=examples/mbed-rtos
   - PLATFORMIO_PROJECT_DIR=examples/mbed-serial
 
