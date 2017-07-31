@@ -4,6 +4,11 @@
     "f_cpu": "96000000L",
     "mcu": "lpc1768"
   },
+  "connectivity": [
+    "can",
+    "cellular",
+    "ethernet"
+  ],
   "debug": {
     "tools": {
       "cmsis-dap": {

@@ -4,6 +4,10 @@
     "f_cpu": "120000000L",
     "mcu": "lpc4088"
   },
+  "connectivity": [
+    "can",
+    "ethernet"
+  ],
   "debug": {
     "tools": {
       "cmsis-dap": {
