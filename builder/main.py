@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from platform import system
 from os.path import join
 
 from SCons.Script import (COMMAND_LINE_TARGETS, AlwaysBuild, Builder, Default,
@@ -111,10 +112,10 @@ env.Append(
 
 target_elf = None
 if "nobuild" in COMMAND_LINE_TARGETS:
-    target_firm = join("$BUILD_DIR", "firmware.bin")
+    target_firm = join("$BUILD_DIR", "${PROGNAME}.bin")
 else:
     target_elf = env.BuildProgram()
-    target_firm = env.ElfToBin(join("$BUILD_DIR", "firmware"), target_elf)
+    target_firm = env.ElfToBin(join("$BUILD_DIR", "${PROGNAME}"), target_elf)
 
 AlwaysBuild(env.Alias("nobuild", target_firm))
 target_buildprog = env.Alias("buildprog", target_firm, target_firm)
@@ -132,10 +133,36 @@ AlwaysBuild(target_size)
 # Target: Upload by default .bin file
 #
 
-target_upload = env.Alias(
-    "upload", target_firm,
-    [env.VerboseAction(env.AutodetectUploadPort, "Looking for upload disk..."),
-     env.VerboseAction(env.UploadToDisk, "Uploading $SOURCE")])
+if env.subst("$UPLOAD_PROTOCOL") == "jlink":
+
+    def _jlink_cmd_script(env, source):
+        script_path = env.subst("$BUILD_DIR/upload.jlink")
+        commands = ["h", "loadbin %s,0x0" % source, "r", "q"]
+        with open(script_path, "w") as fp:
+            fp.write("\n".join(commands))
+        return script_path
+
+    env.Replace(
+        __jlink_cmd_script=_jlink_cmd_script,
+        UPLOADER="JLink.exe" if system() == "Windows" else "JLinkExe",
+        UPLOADERFLAGS=[
+            "-device", env.BoardConfig().get("upload", {}).get("jlink_device"),
+            "-speed", "4000",
+            "-if", "swd",
+            "-autoconnect", "1"
+        ],
+        UPLOADCMD="$UPLOADER $UPLOADERFLAGS -CommanderScript ${__jlink_cmd_script(__env__, SOURCE)}"
+    )
+    target_upload = env.Alias("upload", target_firm,
+                              env.VerboseAction("$UPLOADCMD",
+                                                "Uploading $SOURCE"))
+
+else:
+    target_upload = env.Alias("upload", target_firm, [
+        env.VerboseAction(env.AutodetectUploadPort,
+                          "Looking for upload disk..."),
+        env.VerboseAction(env.UploadToDisk, "Uploading $SOURCE")
+    ])
 AlwaysBuild(target_upload)
 
 #

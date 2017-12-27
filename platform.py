@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from platform import system
+
 from platformio.managers.platform import PlatformBase
 
 
@@ -19,3 +21,34 @@ class NxplpcPlatform(PlatformBase):
 
     def is_embedded(self):
         return True
+
+    def get_boards(self, id_=None):
+        result = PlatformBase.get_boards(self, id_)
+        if not result:
+            return result
+        if id_:
+            return self._add_default_debug_tools(result)
+        else:
+            for key, value in result.items():
+                result[key] = self._add_default_debug_tools(result[key])
+        return result
+
+    def _add_default_debug_tools(self, board):
+        debug = board.manifest.get("debug", {})
+        jlink_device = board.manifest.get("upload", {}).get("jlink_device")
+        if "tools" not in debug:
+            debug['tools'] = {}
+        if "jlink" not in debug['tools'] and jlink_device:
+            debug['tools']['jlink'] = {
+                "arguments": [
+                    "-singlerun",
+                    "-if", "SWD",
+                    "-select", "USB",
+                    "-device", jlink_device,
+                    "-port", "2331"
+                ],
+                "executable": ("JLinkGDBServerCL.exe"
+                               if system() == "Windows" else "JLinkGDBServer")
+            }
+        board.manifest['debug'] = debug
+        return board

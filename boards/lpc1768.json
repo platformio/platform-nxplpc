@@ -26,6 +26,7 @@
   ],
   "name": "NXP mbed LPC1768",
   "upload": {
+    "jlink_device": "LPC1768",
     "maximum_ram_size": 65536,
     "maximum_size": 524288
   },
