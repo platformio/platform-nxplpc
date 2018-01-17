@@ -13,7 +13,8 @@
 # limitations under the License.
 
 from platform import system
-from os.path import join
+from os import makedirs
+from os.path import isdir, join
 
 from SCons.Script import (COMMAND_LINE_TARGETS, AlwaysBuild, Builder, Default,
                           DefaultEnvironment)
@@ -136,10 +137,16 @@ AlwaysBuild(target_size)
 # Target: Upload by default .bin file
 #
 
-if env.subst("$UPLOAD_PROTOCOL") == "jlink":
+upload_protocol = env.subst("$UPLOAD_PROTOCOL")
+upload_actions = []
+
+if upload_protocol.startswith("jlink"):
 
     def _jlink_cmd_script(env, source):
-        script_path = env.subst("$BUILD_DIR/upload.jlink")
+        build_dir = env.subst("$BUILD_DIR")
+        if not isdir(build_dir):
+            makedirs(build_dir)
+        script_path = join(build_dir, "upload.jlink")
         commands = ["h", "loadbin %s,0x0" % source, "r", "q"]
         with open(script_path, "w") as fp:
             fp.write("\n".join(commands))
@@ -151,22 +158,42 @@ if env.subst("$UPLOAD_PROTOCOL") == "jlink":
         UPLOADERFLAGS=[
             "-device", env.BoardConfig().get("upload", {}).get("jlink_device"),
             "-speed", "4000",
-            "-if", "swd",
+            "-if", ("jtag" if upload_protocol == "jlink-jtag" else "swd"),
             "-autoconnect", "1"
         ],
         UPLOADCMD="$UPLOADER $UPLOADERFLAGS -CommanderScript ${__jlink_cmd_script(__env__, SOURCE)}"
     )
-    target_upload = env.Alias("upload", target_firm,
-                              env.VerboseAction("$UPLOADCMD",
-                                                "Uploading $SOURCE"))
+    upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
+
+elif upload_protocol.startswith("blackmagic"):
+    env.Replace(
+        UPLOADER="$GDB",
+        UPLOADERFLAGS=[
+            "-nx",
+            "--batch",
+            "-ex", "target extended-remote $UPLOAD_PORT",
+            "-ex", "monitor %s_scan" %
+            ("jtag" if upload_protocol == "blackmagic-jtag" else "swdp"),
+            "-ex", "attach 1",
+            "-ex", "load",
+            "-ex", "compare-sections",
+            "-ex", "kill",
+            join("$BUILD_DIR", "${PROGNAME}.elf"),
+        ],
+        UPLOADCMD="$UPLOADER $UPLOADERFLAGS"
+    )
+    upload_actions = [
+        env.VerboseAction(env.AutodetectUploadPort, "Looking for BlackMagic port..."),
+        env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
+    ]
 
 else:
-    target_upload = env.Alias("upload", target_firm, [
-        env.VerboseAction(env.AutodetectUploadPort,
-                          "Looking for upload disk..."),
+    upload_actions = [
+        env.VerboseAction(env.AutodetectUploadPort, "Looking for upload disk..."),
         env.VerboseAction(env.UploadToDisk, "Uploading $SOURCE")
-    ])
-AlwaysBuild(target_upload)
+    ]
+
+AlwaysBuild(env.Alias("upload", target_firm, upload_actions))
 
 #
 # Default targets
