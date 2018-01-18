@@ -35,7 +35,7 @@ class NxplpcPlatform(PlatformBase):
 
     def _add_default_debug_tools(self, board):
         debug = board.manifest.get("debug", {})
-        jlink_device = board.manifest.get("upload", {}).get("jlink_device")
+        jlink_device = debug.get("jlink_device")
         if not jlink_device:
             return board
         if "tools" not in debug:
@@ -56,7 +56,14 @@ class NxplpcPlatform(PlatformBase):
             }
 
         # BlackMagic Probe
-        if "blackmagic" not in debug['tools']:
+        board_mcu = board.manifest.get("build", {}).get("mcu")
+        blackmagic_conditions = [
+            "blackmagic" not in debug['tools'], board_mcu and any([
+                board_mcu.startswith(m)
+                for m in ("lpc8", "lpc11", "lpc15", "lpc17", "lpc43")
+            ])
+        ]
+        if all(blackmagic_conditions):
             debug['tools']['blackmagic'] = {
                 "hwids": [["0x1d50", "0x6018"]],
                 "require_debug_port": True

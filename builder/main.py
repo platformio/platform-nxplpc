@@ -156,7 +156,7 @@ if upload_protocol.startswith("jlink"):
         __jlink_cmd_script=_jlink_cmd_script,
         UPLOADER="JLink.exe" if system() == "Windows" else "JLinkExe",
         UPLOADERFLAGS=[
-            "-device", env.BoardConfig().get("upload", {}).get("jlink_device"),
+            "-device", env.BoardConfig().get("debug", {}).get("jlink_device"),
             "-speed", "4000",
             "-if", ("jtag" if upload_protocol == "jlink-jtag" else "swd"),
             "-autoconnect", "1"

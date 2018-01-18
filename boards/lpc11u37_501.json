@@ -7,6 +7,9 @@
   "frameworks": [
     "mbed"
   ],
+  "debug": {
+    "jlink_device": "LPC11U37/501"
+  },
   "name": "NXP LPC11U37",
   "upload": {
     "maximum_ram_size": 10240,

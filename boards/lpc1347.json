@@ -7,6 +7,9 @@
   "frameworks": [
     "mbed"
   ],
+  "debug": {
+    "jlink_device": "LPC1347"
+  },
   "name": "DipCortex M3",
   "upload": {
     "maximum_ram_size": 12288,

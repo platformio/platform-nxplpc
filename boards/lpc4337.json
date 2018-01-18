@@ -7,6 +7,9 @@
   "frameworks": [
     "mbed"
   ],
+  "debug": {
+    "jlink_device": "LPC4337_M4"
+  },
   "name": "LPCXpresso4337",
   "upload": {
     "maximum_ram_size": 139264,

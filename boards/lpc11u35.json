@@ -7,6 +7,9 @@
   "frameworks": [
     "mbed"
   ],
+  "debug": {
+    "jlink_device": "LPC11U35/401"
+  },
   "name": "EA LPC11U35 QuickStart Board",
   "upload": {
     "maximum_ram_size": 10240,

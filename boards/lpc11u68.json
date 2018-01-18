@@ -5,6 +5,7 @@
     "mcu": "lpc11u68"
   },
   "debug": {
+    "jlink_device": "LPC11U68",
     "tools": {
       "cmsis-dap": {
         "server": {

@@ -12,6 +12,6 @@
     "maximum_ram_size": 10240,
     "maximum_size": 49152
   },
-  "url": "https://developer.mbed.org/platforms/MicroNFCBoard/",
-  "vendor": "NXP"
+  "url": "https://os.mbed.com/platforms/MicroNFCBoard/",
+  "vendor": "AppNearMe"
 }

@@ -5,6 +5,7 @@
     "mcu": "lpc4330"
   },
   "debug": {
+    "jlink_device": "LPC4330_M0",
     "tools": {
       "cmsis-dap": {
         "server": {

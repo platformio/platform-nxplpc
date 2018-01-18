@@ -5,6 +5,7 @@
     "mcu": "lpc812"
   },
   "debug": {
+    "jlink_device": "LPC812M101",
     "tools": {
       "cmsis-dap": {
         "server": {

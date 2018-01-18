@@ -9,6 +9,7 @@
     "ethernet"
   ],
   "debug": {
+    "jlink_device": "LPC4088",
     "tools": {
       "cmsis-dap": {
         "server": {
