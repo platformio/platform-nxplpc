@@ -36,9 +36,13 @@ class NxplpcPlatform(PlatformBase):
     def _add_default_debug_tools(self, board):
         debug = board.manifest.get("debug", {})
         jlink_device = board.manifest.get("upload", {}).get("jlink_device")
+        if not jlink_device:
+            return board
         if "tools" not in debug:
             debug['tools'] = {}
-        if "jlink" not in debug['tools'] and jlink_device:
+
+        # J-Link
+        if "jlink" not in debug['tools']:
             debug['tools']['jlink'] = {
                 "arguments": [
                     "-singlerun",
@@ -50,5 +54,13 @@ class NxplpcPlatform(PlatformBase):
                 "executable": ("JLinkGDBServerCL.exe"
                                if system() == "Windows" else "JLinkGDBServer")
             }
+
+        # BlackMagic Probe
+        if "blackmagic" not in debug['tools']:
+            debug['tools']['blackmagic'] = {
+                "hwids": [["0x1d50", "0x6018"]],
+                "require_debug_port": True
+            }
+
         board.manifest['debug'] = debug
         return board
