@@ -44,15 +44,17 @@ class NxplpcPlatform(PlatformBase):
         # J-Link
         if "jlink" not in debug['tools']:
             debug['tools']['jlink'] = {
-                "arguments": [
-                    "-singlerun",
-                    "-if", "SWD",
-                    "-select", "USB",
-                    "-device", jlink_device,
-                    "-port", "2331"
-                ],
-                "executable": ("JLinkGDBServerCL.exe"
-                               if system() == "Windows" else "JLinkGDBServer")
+                "server": {
+                    "arguments": [
+                        "-singlerun",
+                        "-if", "SWD",
+                        "-select", "USB",
+                        "-device", jlink_device,
+                        "-port", "2331"
+                    ],
+                    "executable": ("JLinkGDBServerCL.exe" if
+                                   system() == "Windows" else "JLinkGDBServer")
+                }
             }
 
         # BlackMagic Probe
