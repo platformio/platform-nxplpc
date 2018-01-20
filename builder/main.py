@@ -187,6 +187,11 @@ elif upload_protocol.startswith("blackmagic"):
         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
     ]
 
+# custom upload tool
+elif "UPLOADCMD" in env:
+    upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
+
+# mbed
 else:
     upload_actions = [
         env.VerboseAction(env.AutodetectUploadPort, "Looking for upload disk..."),
