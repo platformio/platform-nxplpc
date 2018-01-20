@@ -27,7 +27,14 @@
   "name": "Switch Science mbed LPC824",
   "upload": {
     "maximum_ram_size": 8192,
-    "maximum_size": 32768
+    "maximum_size": 32768,
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "cmsis-dap",
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "https://developer.mbed.org/platforms/Switch-Science-mbed-LPC824/",
   "vendor": "Switch Science"

@@ -28,7 +28,14 @@
   "name": "Bambino-210E",
   "upload": {
     "maximum_ram_size": 270336,
-    "maximum_size": 8388608
+    "maximum_size": 8388608,
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "cmsis-dap",
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "https://developer.mbed.org/platforms/Micromint-Bambino-210E/",
   "vendor": "Micromint"

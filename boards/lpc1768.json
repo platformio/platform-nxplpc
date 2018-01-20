@@ -28,7 +28,14 @@
   "name": "NXP mbed LPC1768",
   "upload": {
     "maximum_ram_size": 65536,
-    "maximum_size": 524288
+    "maximum_size": 524288,
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "cmsis-dap",
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "http://developer.mbed.org/platforms/mbed-LPC1768/",
   "vendor": "NXP"

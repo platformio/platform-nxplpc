@@ -13,7 +13,13 @@
   "name": "NXP LPC11U37",
   "upload": {
     "maximum_ram_size": 10240,
-    "maximum_size": 131072
+    "maximum_size": 131072,
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "http://www.nxp.com/products/microcontrollers-and-processors/arm-processors/lpc-cortex-m-mcus/lpc-cortex-m0-plus-m0/lpc1100-cortex-m0-plus-m0/128kb-flash-10kb-sram-lqfp48-package:LPC11U37FBD48?lang_cd=en",
   "vendor": "NXP"

@@ -31,7 +31,14 @@
   "name": "u-blox C027",
   "upload": {
     "maximum_ram_size": 65536,
-    "maximum_size": 524288
+    "maximum_size": 524288,
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "cmsis-dap",
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "https://developer.mbed.org/platforms/u-blox-C027/",
   "vendor": "u-blox"

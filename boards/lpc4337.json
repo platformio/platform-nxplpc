@@ -13,7 +13,13 @@
   "name": "LPCXpresso4337",
   "upload": {
     "maximum_ram_size": 139264,
-    "maximum_size": 1048576
+    "maximum_size": 1048576,
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "https://developer.mbed.org/platforms/LPCXpresso4337/",
   "vendor": "Micromint"

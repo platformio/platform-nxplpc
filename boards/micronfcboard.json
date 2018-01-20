@@ -10,7 +10,11 @@
   "name": "MicroNFCBoard",
   "upload": {
     "maximum_ram_size": 10240,
-    "maximum_size": 49152
+    "maximum_size": 49152,
+    "protocols": [
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "https://os.mbed.com/platforms/MicroNFCBoard/",
   "vendor": "AppNearMe"

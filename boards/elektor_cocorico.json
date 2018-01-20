@@ -27,7 +27,14 @@
   "name": "CoCo-ri-Co!",
   "upload": {
     "maximum_ram_size": 4096,
-    "maximum_size": 16384
+    "maximum_size": 16384,
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "cmsis-dap",
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "https://developer.mbed.org/platforms/CoCo-ri-Co/",
   "vendor": "Elektor Labs"

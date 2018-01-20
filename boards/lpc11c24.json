@@ -13,7 +13,13 @@
   "name": "NXP LPC11C24",
   "upload": {
     "maximum_ram_size": 8192,
-    "maximum_size": 32768
+    "maximum_size": 32768,
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "http://www.nxp.com/products/microcontrollers-and-processors/arm-processors/lpc-cortex-m-mcus/lpc-cortex-m0-plus-m0/lpc1100-cortex-m0-plus-m0/scalable-entry-level-32-bit-microcontroller-mcu-based-on-arm-cortex-m0-plus-m0-cores:LPC11C24FBD48",
   "vendor": "NXP"

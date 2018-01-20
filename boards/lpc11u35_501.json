@@ -13,7 +13,13 @@
   "name": "CQ Publishing TG-LPC11U35-501",
   "upload": {
     "maximum_ram_size": 10240,
-    "maximum_size": 65536
+    "maximum_size": 65536,
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "https://developer.mbed.org/platforms/TG-LPC11U35-501/",
   "vendor": "CQ Publishing"

@@ -27,7 +27,14 @@
   "name": "Switch Science mbed LPC1114FN28",
   "upload": {
     "maximum_ram_size": 4096,
-    "maximum_size": 32768
+    "maximum_size": 32768,
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "cmsis-dap",
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "https://developer.mbed.org/platforms/LPC1114FN28/",
   "vendor": "Switch Science"

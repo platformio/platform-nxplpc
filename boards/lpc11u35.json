@@ -13,7 +13,13 @@
   "name": "EA LPC11U35 QuickStart Board",
   "upload": {
     "maximum_ram_size": 10240,
-    "maximum_size": 65536
+    "maximum_size": 65536,
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "https://developer.mbed.org/platforms/EA-LPC11U35/",
   "vendor": "Embedded Artists"

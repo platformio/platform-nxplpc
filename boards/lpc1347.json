@@ -13,7 +13,12 @@
   "name": "DipCortex M3",
   "upload": {
     "maximum_ram_size": 12288,
-    "maximum_size": 65536
+    "maximum_size": 65536,
+    "protocols": [
+      "jlink",
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "https://developer.mbed.org/platforms/DipCortex-M3/",
   "vendor": "Solder Splash Labs"

@@ -10,7 +10,11 @@
   "name": "Smeshlink xbed LPC1768",
   "upload": {
     "maximum_ram_size": 32768,
-    "maximum_size": 524288
+    "maximum_size": 524288,
+    "protocols": [
+      "mbed"
+    ],
+    "protocol": "mbed"
   },
   "url": "https://developer.mbed.org/platforms/xbed-LPC1768/",
   "vendor": "Smeshlink"
