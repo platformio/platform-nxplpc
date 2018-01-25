@@ -179,7 +179,7 @@ elif upload_protocol.startswith("blackmagic"):
             "-ex", "compare-sections",
             "-ex", "kill"
         ],
-        UPLOADCMD="$UPLOADER $UPLOADERFLAGS $SOURCE"
+        UPLOADCMD="$UPLOADER $UPLOADERFLAGS $BUILD_DIR/${PROGNAME}.elf"
     )
     upload_actions = [
         env.VerboseAction(env.AutodetectUploadPort, "Looking for BlackMagic port..."),
