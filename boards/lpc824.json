@@ -1,43 +1,43 @@
 {
   "build": {
-    "cpu": "cortex-m0plus", 
-    "f_cpu": "30000000L", 
+    "cpu": "cortex-m0plus",
+    "f_cpu": "30000000L",
     "mcu": "lpc824"
-  }, 
+  },
   "debug": {
-    "jlink_device": "LPC824M201", 
+    "jlink_device": "LPC824M201",
     "tools": {
       "cmsis-dap": {
-        "load_cmd": "preload", 
-        "onboard": true, 
+        "load_cmd": "preload",
+        "onboard": true,
         "server": {
           "arguments": [
-            "-f", 
-            "scripts/interface/cmsis-dap.cfg", 
-            "-f", 
+            "-f",
+            "scripts/interface/cmsis-dap.cfg",
+            "-f",
             "scripts/target/lpc8xx.cfg"
-          ], 
-          "executable": "bin/openocd", 
+          ],
+          "executable": "bin/openocd",
           "package": "tool-openocd"
         }
       }
     }
-  }, 
+  },
   "frameworks": [
     "mbed"
-  ], 
-  "name": "LPCXpresso824-MAX", 
+  ],
+  "name": "LPCXpresso824-MAX",
   "upload": {
-    "maximum_ram_size": 8192, 
-    "maximum_size": 32768, 
-    "protocol": "mbed", 
+    "maximum_ram_size": 8192,
+    "maximum_size": 32768,
+    "protocol": "mbed",
     "protocols": [
-      "jlink", 
-      "blackmagic", 
-      "cmsis-dap", 
+      "jlink",
+      "blackmagic",
+      "cmsis-dap",
       "mbed"
     ]
-  }, 
-  "url": "https://developer.mbed.org/platforms/LPCXpresso824-MAX/", 
+  },
+  "url": "https://developer.mbed.org/platforms/LPCXpresso824-MAX/",
   "vendor": "NXP"
 }

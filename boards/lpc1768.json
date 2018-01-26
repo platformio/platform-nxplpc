@@ -1,45 +1,45 @@
 {
   "build": {
-    "cpu": "cortex-m3", 
-    "f_cpu": "96000000L", 
+    "cpu": "cortex-m3",
+    "f_cpu": "96000000L",
     "mcu": "lpc1768"
-  }, 
+  },
   "connectivity": [
-    "can", 
+    "can",
     "ethernet"
-  ], 
+  ],
   "debug": {
-    "jlink_device": "LPC1768", 
+    "jlink_device": "LPC1768",
     "tools": {
       "cmsis-dap": {
-        "load_cmd": "preload", 
-        "onboard": true, 
+        "load_cmd": "preload",
+        "onboard": true,
         "server": {
           "arguments": [
-            "-f", 
+            "-f",
             "scripts/board/mbed-lpc1768.cfg"
-          ], 
-          "executable": "bin/openocd", 
+          ],
+          "executable": "bin/openocd",
           "package": "tool-openocd"
         }
       }
     }
-  }, 
+  },
   "frameworks": [
     "mbed"
-  ], 
-  "name": "NXP mbed LPC1768", 
+  ],
+  "name": "NXP mbed LPC1768",
   "upload": {
-    "maximum_ram_size": 65536, 
-    "maximum_size": 524288, 
-    "protocol": "mbed", 
+    "maximum_ram_size": 65536,
+    "maximum_size": 524288,
+    "protocol": "mbed",
     "protocols": [
-      "jlink", 
-      "blackmagic", 
-      "cmsis-dap", 
+      "jlink",
+      "blackmagic",
+      "cmsis-dap",
       "mbed"
     ]
-  }, 
-  "url": "http://developer.mbed.org/platforms/mbed-LPC1768/", 
+  },
+  "url": "http://developer.mbed.org/platforms/mbed-LPC1768/",
   "vendor": "NXP"
 }

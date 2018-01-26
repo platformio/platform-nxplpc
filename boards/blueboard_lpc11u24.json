@@ -1,26 +1,26 @@
 {
   "build": {
-    "cpu": "cortex-m0", 
-    "f_cpu": "48000000L", 
+    "cpu": "cortex-m0",
+    "f_cpu": "48000000L",
     "mcu": "lpc11u24"
-  }, 
+  },
   "debug": {
     "jlink_device": "LPC11U24/301"
-  }, 
+  },
   "frameworks": [
     "mbed"
-  ], 
-  "name": "NGX Technologies BlueBoard-LPC11U24", 
+  ],
+  "name": "NGX Technologies BlueBoard-LPC11U24",
   "upload": {
-    "maximum_ram_size": 8192, 
-    "maximum_size": 32768, 
-    "protocol": "mbed", 
+    "maximum_ram_size": 8192,
+    "maximum_size": 32768,
+    "protocol": "mbed",
     "protocols": [
-      "jlink", 
-      "blackmagic", 
+      "jlink",
+      "blackmagic",
       "mbed"
     ]
-  }, 
-  "url": "https://developer.mbed.org/platforms/BlueBoard-LPC11U24/", 
+  },
+  "url": "https://developer.mbed.org/platforms/BlueBoard-LPC11U24/",
   "vendor": "NGX Technologies"
 }
