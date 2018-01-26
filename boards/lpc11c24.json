@@ -1,26 +1,26 @@
 {
   "build": {
-    "cpu": "cortex-m0",
-    "f_cpu": "48000000L",
+    "cpu": "cortex-m0", 
+    "f_cpu": "48000000L", 
     "mcu": "lpc11c24"
-  },
-  "frameworks": [
-    "mbed"
-  ],
+  }, 
   "debug": {
     "jlink_device": "LPC11C24/301"
-  },
-  "name": "NXP LPC11C24",
+  }, 
+  "frameworks": [
+    "mbed"
+  ], 
+  "name": "NXP LPC11C24", 
   "upload": {
-    "maximum_ram_size": 8192,
-    "maximum_size": 32768,
+    "maximum_ram_size": 8192, 
+    "maximum_size": 32768, 
+    "protocol": "mbed", 
     "protocols": [
-      "jlink",
-      "blackmagic",
+      "jlink", 
+      "blackmagic", 
       "mbed"
-    ],
-    "protocol": "mbed"
-  },
-  "url": "http://www.nxp.com/products/microcontrollers-and-processors/arm-processors/lpc-cortex-m-mcus/lpc-cortex-m0-plus-m0/lpc1100-cortex-m0-plus-m0/scalable-entry-level-32-bit-microcontroller-mcu-based-on-arm-cortex-m0-plus-m0-cores:LPC11C24FBD48",
+    ]
+  }, 
+  "url": "http://www.nxp.com/products/microcontrollers-and-processors/arm-processors/lpc-cortex-m-mcus/lpc-cortex-m0-plus-m0/lpc1100-cortex-m0-plus-m0/scalable-entry-level-32-bit-microcontroller-mcu-based-on-arm-cortex-m0-plus-m0-cores:LPC11C24FBD48", 
   "vendor": "NXP"
 }

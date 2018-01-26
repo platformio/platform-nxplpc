@@ -1,26 +1,26 @@
 {
   "build": {
-    "cpu": "cortex-m4",
-    "f_cpu": "204000000L",
+    "cpu": "cortex-m4", 
+    "f_cpu": "204000000L", 
     "mcu": "lpc4337"
-  },
-  "frameworks": [
-    "mbed"
-  ],
+  }, 
   "debug": {
     "jlink_device": "LPC4337_M4"
-  },
-  "name": "LPCXpresso4337",
+  }, 
+  "frameworks": [
+    "mbed"
+  ], 
+  "name": "LPCXpresso4337", 
   "upload": {
-    "maximum_ram_size": 139264,
-    "maximum_size": 1048576,
+    "maximum_ram_size": 139264, 
+    "maximum_size": 1048576, 
+    "protocol": "mbed", 
     "protocols": [
-      "jlink",
-      "blackmagic",
+      "jlink", 
+      "blackmagic", 
       "mbed"
-    ],
-    "protocol": "mbed"
-  },
-  "url": "https://developer.mbed.org/platforms/LPCXpresso4337/",
+    ]
+  }, 
+  "url": "https://developer.mbed.org/platforms/LPCXpresso4337/", 
   "vendor": "Micromint"
 }

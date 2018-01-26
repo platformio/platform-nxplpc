@@ -1,26 +1,26 @@
 {
   "build": {
-    "cpu": "cortex-m0",
-    "f_cpu": "48000000L",
+    "cpu": "cortex-m0", 
+    "f_cpu": "48000000L", 
     "mcu": "lpc11u37"
-  },
-  "frameworks": [
-    "mbed"
-  ],
+  }, 
   "debug": {
     "jlink_device": "LPC11U37/501"
-  },
-  "name": "NXP LPC11U37",
+  }, 
+  "frameworks": [
+    "mbed"
+  ], 
+  "name": "NXP LPC11U37", 
   "upload": {
-    "maximum_ram_size": 10240,
-    "maximum_size": 131072,
+    "maximum_ram_size": 10240, 
+    "maximum_size": 131072, 
+    "protocol": "mbed", 
     "protocols": [
-      "jlink",
-      "blackmagic",
+      "jlink", 
+      "blackmagic", 
       "mbed"
-    ],
-    "protocol": "mbed"
-  },
-  "url": "http://www.nxp.com/products/microcontrollers-and-processors/arm-processors/lpc-cortex-m-mcus/lpc-cortex-m0-plus-m0/lpc1100-cortex-m0-plus-m0/128kb-flash-10kb-sram-lqfp48-package:LPC11U37FBD48?lang_cd=en",
+    ]
+  }, 
+  "url": "http://www.nxp.com/products/microcontrollers-and-processors/arm-processors/lpc-cortex-m-mcus/lpc-cortex-m0-plus-m0/lpc1100-cortex-m0-plus-m0/128kb-flash-10kb-sram-lqfp48-package:LPC11U37FBD48?lang_cd=en", 
   "vendor": "NXP"
 }

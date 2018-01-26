@@ -1,21 +1,21 @@
 {
   "build": {
-    "cpu": "cortex-m0",
-    "f_cpu": "48000000L",
+    "cpu": "cortex-m0", 
+    "f_cpu": "48000000L", 
     "mcu": "lpc11u34"
-  },
+  }, 
   "frameworks": [
     "mbed"
-  ],
-  "name": "MicroNFCBoard",
+  ], 
+  "name": "MicroNFCBoard", 
   "upload": {
-    "maximum_ram_size": 10240,
-    "maximum_size": 49152,
+    "maximum_ram_size": 10240, 
+    "maximum_size": 49152, 
+    "protocol": "mbed", 
     "protocols": [
       "mbed"
-    ],
-    "protocol": "mbed"
-  },
-  "url": "https://os.mbed.com/platforms/MicroNFCBoard/",
+    ]
+  }, 
+  "url": "https://os.mbed.com/platforms/MicroNFCBoard/", 
   "vendor": "AppNearMe"
 }

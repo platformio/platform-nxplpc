@@ -1,41 +1,43 @@
 {
   "build": {
-    "cpu": "cortex-m0plus",
-    "f_cpu": "30000000L",
+    "cpu": "cortex-m0plus", 
+    "f_cpu": "30000000L", 
     "mcu": "lpc812"
-  },
+  }, 
   "debug": {
-    "jlink_device": "LPC812M101",
+    "jlink_device": "LPC812M101", 
     "tools": {
       "cmsis-dap": {
+        "load_cmd": "preload", 
+        "onboard": true, 
         "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
           "arguments": [
-            "-f", "scripts/interface/cmsis-dap.cfg",
-            "-f", "scripts/target/lpc8xx.cfg"
-          ]
-        },
-        "load_cmd": "preload",
-        "onboard": true
+            "-f", 
+            "scripts/interface/cmsis-dap.cfg", 
+            "-f", 
+            "scripts/target/lpc8xx.cfg"
+          ], 
+          "executable": "bin/openocd", 
+          "package": "tool-openocd"
+        }
       }
     }
-  },
+  }, 
   "frameworks": [
     "mbed"
-  ],
-  "name": "CoCo-ri-Co!",
+  ], 
+  "name": "CoCo-ri-Co!", 
   "upload": {
-    "maximum_ram_size": 4096,
-    "maximum_size": 16384,
+    "maximum_ram_size": 4096, 
+    "maximum_size": 16384, 
+    "protocol": "mbed", 
     "protocols": [
-      "jlink",
-      "blackmagic",
-      "cmsis-dap",
+      "jlink", 
+      "blackmagic", 
+      "cmsis-dap", 
       "mbed"
-    ],
-    "protocol": "mbed"
-  },
-  "url": "https://developer.mbed.org/platforms/CoCo-ri-Co/",
+    ]
+  }, 
+  "url": "https://developer.mbed.org/platforms/CoCo-ri-Co/", 
   "vendor": "Elektor Labs"
 }
