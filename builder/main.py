@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import sys
 from platform import system
 from os import makedirs
 from os.path import isdir, join
@@ -36,7 +37,6 @@ env.Replace(
     ASFLAGS=["-x", "assembler-with-cpp"],
 
     CCFLAGS=[
-        "-g",   # include debugging info (so errors include line numbers)
         "-Os",  # optimize for size
         "-ffunction-sections",  # place each function in its own section
         "-fdata-sections",
@@ -140,7 +140,13 @@ AlwaysBuild(target_size)
 upload_protocol = env.subst("$UPLOAD_PROTOCOL")
 upload_actions = []
 
-if upload_protocol.startswith("jlink"):
+if upload_protocol == "mbed":
+    upload_actions = [
+        env.VerboseAction(env.AutodetectUploadPort, "Looking for upload disk..."),
+        env.VerboseAction(env.UploadToDisk, "Uploading $SOURCE")
+    ]
+
+elif upload_protocol.startswith("jlink"):
 
     def _jlink_cmd_script(env, source):
         build_dir = env.subst("$BUILD_DIR")
@@ -190,12 +196,8 @@ elif upload_protocol.startswith("blackmagic"):
 elif "UPLOADCMD" in env:
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
-# mbed
 else:
-    upload_actions = [
-        env.VerboseAction(env.AutodetectUploadPort, "Looking for upload disk..."),
-        env.VerboseAction(env.UploadToDisk, "Uploading $SOURCE")
-    ]
+    sys.stderr.write("Warning! Unknown upload protocol %s\n" % upload_protocol)
 
 AlwaysBuild(env.Alias("upload", target_firm, upload_actions))
 
