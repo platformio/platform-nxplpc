@@ -35,41 +35,35 @@ class NxplpcPlatform(PlatformBase):
 
     def _add_default_debug_tools(self, board):
         debug = board.manifest.get("debug", {})
-        jlink_device = debug.get("jlink_device")
-        if not jlink_device:
-            return board
+        upload_protocols = board.manifest.get("upload", {}).get(
+            "protocols", [])
         if "tools" not in debug:
             debug['tools'] = {}
 
-        # J-Link
-        if "jlink" not in debug['tools']:
-            debug['tools']['jlink'] = {
-                "server": {
-                    "arguments": [
-                        "-singlerun",
-                        "-if", "SWD",
-                        "-select", "USB",
-                        "-device", jlink_device,
-                        "-port", "2331"
-                    ],
-                    "executable": ("JLinkGDBServerCL.exe" if
-                                   system() == "Windows" else "JLinkGDBServer")
+        # J-Link / BlackMagic Probe
+        for link in ("blackmagic", "jlink"):
+            if link not in upload_protocols or link in debug['tools']:
+                continue
+            if link == "blackmagic":
+                debug['tools']['blackmagic'] = {
+                    "hwids": [["0x1d50", "0x6018"]],
+                    "require_debug_port": True
                 }
-            }
-
-        # BlackMagic Probe
-        board_mcu = board.manifest.get("build", {}).get("mcu")
-        blackmagic_conditions = [
-            "blackmagic" not in debug['tools'], board_mcu and any([
-                board_mcu.startswith(m)
-                for m in ("lpc8", "lpc11", "lpc15", "lpc17", "lpc43")
-            ])
-        ]
-        if all(blackmagic_conditions):
-            debug['tools']['blackmagic'] = {
-                "hwids": [["0x1d50", "0x6018"]],
-                "require_debug_port": True
-            }
+            else:
+                debug['tools']['jlink'] = {
+                    "server": {
+                        "arguments": [
+                            "-singlerun",
+                            "-if", "SWD",
+                            "-select", "USB",
+                            "-device", debug.get("jlink_device"),
+                            "-port", "2331"
+                        ],
+                        "executable": ("JLinkGDBServerCL.exe"
+                                       if system() == "Windows" else
+                                       "JLinkGDBServer")
+                    }
+                }
 
         board.manifest['debug'] = debug
         return board

@@ -18,7 +18,6 @@
     "protocols": [
       "jlink",
       "blackmagic",
-      "cmsis-dap",
       "mbed"
     ]
   },

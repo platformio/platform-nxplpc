@@ -34,8 +34,6 @@
     "maximum_size": 524288,
     "protocol": "mbed",
     "protocols": [
-      "jlink",
-      "blackmagic",
       "cmsis-dap",
       "mbed"
     ]
