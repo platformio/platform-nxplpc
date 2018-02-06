@@ -12,15 +12,15 @@
     "jlink_device": "LPC1768",
     "tools": {
       "cmsis-dap": {
-        "load_cmd": "preload",
         "onboard": true,
         "server": {
           "arguments": [
-            "-f",
-            "scripts/board/mbed-lpc1768.cfg"
+            "pyocd-gdbserver.py",
+            "-t",
+            "lpc1768"
           ],
-          "executable": "bin/openocd",
-          "package": "tool-openocd"
+          "executable": "$PYTHONEXE",
+          "package": "tool-pyocd"
         }
       }
     }

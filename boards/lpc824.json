@@ -8,17 +8,15 @@
     "jlink_device": "LPC824M201",
     "tools": {
       "cmsis-dap": {
-        "load_cmd": "preload",
         "onboard": true,
         "server": {
           "arguments": [
-            "-f",
-            "scripts/interface/cmsis-dap.cfg",
-            "-f",
-            "scripts/target/lpc8xx.cfg"
+            "pyocd-gdbserver.py",
+            "-t",
+            "lpc824"
           ],
-          "executable": "bin/openocd",
-          "package": "tool-openocd"
+          "executable": "$PYTHONEXE",
+          "package": "tool-pyocd"
         }
       }
     }

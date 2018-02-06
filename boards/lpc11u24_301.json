@@ -5,17 +5,18 @@
     "mcu": "lpc11u24"
   },
   "debug": {
+    "jlink_device": "LPC11C24/301",
     "tools": {
       "cmsis-dap": {
-        "load_cmd": "preload",
         "onboard": true,
         "server": {
           "arguments": [
-            "-f",
-            "scripts/board/mbed-lpc11u24.cfg"
+            "pyocd-gdbserver.py",
+            "-t",
+            "lpc11u24"
           ],
-          "executable": "bin/openocd",
-          "package": "tool-openocd"
+          "executable": "$PYTHONEXE",
+          "package": "tool-pyocd"
         }
       }
     }

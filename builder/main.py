@@ -21,6 +21,7 @@ from SCons.Script import (COMMAND_LINE_TARGETS, AlwaysBuild, Builder, Default,
                           DefaultEnvironment)
 
 env = DefaultEnvironment()
+platform = env.PioPlatform()
 
 env.Replace(
     AR="arm-none-eabi-ar",
@@ -138,6 +139,8 @@ AlwaysBuild(target_size)
 #
 
 upload_protocol = env.subst("$UPLOAD_PROTOCOL")
+debug_server = env.BoardConfig().get("debug.tools", {}).get(
+    upload_protocol, {}).get("server")
 upload_actions = []
 
 if upload_protocol == "mbed":
@@ -189,6 +192,17 @@ elif upload_protocol.startswith("blackmagic"):
     )
     upload_actions = [
         env.VerboseAction(env.AutodetectUploadPort, "Looking for BlackMagic port..."),
+        env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
+    ]
+
+elif debug_server and debug_server.get("package") == "tool-pyocd":
+    env.Replace(
+        UPLOADER=join(platform.get_package_dir("tool-pyocd") or "",
+                      "pyocd-flashtool.py"),
+        UPLOADERFLAGS=debug_server.get("arguments", [])[1:],
+        UPLOADCMD='"$PYTHONEXE" "$UPLOADER" $UPLOADERFLAGS $SOURCE'
+    )
+    upload_actions = [
         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
     ]
 

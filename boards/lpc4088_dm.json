@@ -12,17 +12,15 @@
     "jlink_device": "LPC4088",
     "tools": {
       "cmsis-dap": {
-        "load_cmd": "preload",
         "onboard": true,
         "server": {
           "arguments": [
-            "-f",
-            "scripts/interface/cmsis-dap.cfg",
-            "-f",
-            "scripts/target/lpc40xx.cfg"
+            "pyocd-gdbserver.py",
+            "-t",
+            "lpc4088dm"
           ],
-          "executable": "bin/openocd",
-          "package": "tool-openocd"
+          "executable": "$PYTHONEXE",
+          "package": "tool-pyocd"
         }
       }
     }

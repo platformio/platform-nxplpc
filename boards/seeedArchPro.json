@@ -10,17 +10,15 @@
   "debug": {
     "tools": {
       "cmsis-dap": {
-        "load_cmd": "preload",
         "onboard": true,
         "server": {
           "arguments": [
-            "-f",
-            "scripts/interface/cmsis-dap.cfg",
-            "-f",
-            "scripts/target/lpc17xx.cfg"
+            "pyocd-gdbserver.py",
+            "-t",
+            "lpc1768"
           ],
-          "executable": "bin/openocd",
-          "package": "tool-openocd"
+          "executable": "$PYTHONEXE",
+          "package": "tool-pyocd"
         }
       }
     }

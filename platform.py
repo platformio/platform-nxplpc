@@ -22,6 +22,18 @@ class NxplpcPlatform(PlatformBase):
     def is_embedded(self):
         return True
 
+    def configure_default_packages(self, variables, targets):
+        if variables.get("board"):
+            upload_protocol = variables.get("upload_protocol",
+                                            self.board_config(
+                                                variables.get("board")).get(
+                                                    "upload.protocol", ""))
+            if upload_protocol == "cmsis-dap":
+                self.packages['tool-pyocd']['type'] = "uploader"
+
+        return PlatformBase.configure_default_packages(self, variables,
+                                                       targets)
+
     def get_boards(self, id_=None):
         result = PlatformBase.get_boards(self, id_)
         if not result:
@@ -50,6 +62,8 @@ class NxplpcPlatform(PlatformBase):
                     "require_debug_port": True
                 }
             else:
+                assert debug.get("jlink_device"), (
+                    "Missed J-Link Device ID for %s" % board.id)
                 debug['tools']['jlink'] = {
                     "server": {
                         "arguments": [
