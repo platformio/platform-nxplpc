@@ -10,7 +10,11 @@
   "name": "Seeed Xadow M0",
   "upload": {
     "maximum_ram_size": 10240,
-    "maximum_size": 65536
+    "maximum_size": 65536,
+    "protocol": "mbed",
+    "protocols": [
+      "mbed"
+    ]
   },
   "url": "https://developer.mbed.org/platforms/Seeed-Xadow-M0/",
   "vendor": "SeeedStudio"

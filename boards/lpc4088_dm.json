@@ -9,18 +9,19 @@
     "ethernet"
   ],
   "debug": {
+    "jlink_device": "LPC4088",
     "tools": {
       "cmsis-dap": {
+        "onboard": true,
         "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
           "arguments": [
-            "-f", "scripts/interface/cmsis-dap.cfg",
-            "-f", "scripts/target/lpc40xx.cfg"
-          ]
-        },
-        "load_cmd": "preload",
-        "onboard": true
+            "pyocd-gdbserver.py",
+            "-t",
+            "lpc4088dm"
+          ],
+          "executable": "$PYTHONEXE",
+          "package": "tool-pyocd"
+        }
       }
     }
   },
@@ -30,7 +31,13 @@
   "name": "Embedded Artists LPC4088 Display Module",
   "upload": {
     "maximum_ram_size": 98304,
-    "maximum_size": 524288
+    "maximum_size": 524288,
+    "protocol": "mbed",
+    "protocols": [
+      "jlink",
+      "cmsis-dap",
+      "mbed"
+    ]
   },
   "url": "https://developer.mbed.org/platforms/EA-LPC4088-Display-Module/",
   "vendor": "Embedded Artists"

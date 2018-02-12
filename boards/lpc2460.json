@@ -5,20 +5,7 @@
     "mcu": "lpc2460"
   },
   "debug": {
-    "tools": {
-      "cmsis-dap": {
-        "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
-          "arguments": [
-            "-f", "scripts/interface/cmsis-dap.cfg",
-            "-f", "scripts/target/lpc2460.cfg"
-          ]
-        },
-        "load_cmd": "preload",
-        "onboard": true
-      }
-    }
+    "jlink_device": "LPC2460"
   },
   "frameworks": [
     "mbed"
@@ -26,7 +13,12 @@
   "name": "NXP LPC2460",
   "upload": {
     "maximum_ram_size": 16384,
-    "maximum_size": 65536
+    "maximum_size": 65536,
+    "protocol": "mbed",
+    "protocols": [
+      "jlink",
+      "mbed"
+    ]
   },
   "url": "http://www.nxp.com/products/microcontrollers-and-processors/arm-processors/lpc-arm7-arm9-mcus/lpc-arm7-mcus/lpc2100-200-300-400/flashless-16-bit-32-bit-microcontroller-ethernet-can-isp-iap-usb-2.0-device-host-otg-external-memory-interface:LPC2460FBD208",
   "vendor": "NXP"

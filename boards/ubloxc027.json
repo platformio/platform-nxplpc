@@ -10,18 +10,19 @@
     "ethernet"
   ],
   "debug": {
+    "jlink_device": "LPC1768",
     "tools": {
       "cmsis-dap": {
+        "onboard": true,
         "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
           "arguments": [
-            "-f", "scripts/interface/cmsis-dap.cfg",
-            "-f", "scripts/target/lpc17xx.cfg"
-          ]
-        },
-        "load_cmd": "preload",
-        "onboard": true
+            "pyocd-gdbserver.py",
+            "-t",
+            "lpc1768"
+          ],
+          "executable": "$PYTHONEXE",
+          "package": "tool-pyocd"
+        }
       }
     }
   },
@@ -31,7 +32,14 @@
   "name": "u-blox C027",
   "upload": {
     "maximum_ram_size": 65536,
-    "maximum_size": 524288
+    "maximum_size": 524288,
+    "protocol": "mbed",
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "cmsis-dap",
+      "mbed"
+    ]
   },
   "url": "https://developer.mbed.org/platforms/u-blox-C027/",
   "vendor": "u-blox"

@@ -10,7 +10,11 @@
   "name": "mBuino",
   "upload": {
     "maximum_ram_size": 10240,
-    "maximum_size": 32768
+    "maximum_size": 32768,
+    "protocol": "mbed",
+    "protocols": [
+      "mbed"
+    ]
   },
   "url": "https://developer.mbed.org/platforms/mBuino/",
   "vendor": "GHI Electronics"

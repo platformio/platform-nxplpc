@@ -4,13 +4,21 @@
     "f_cpu": "72000000L",
     "mcu": "lpc1347"
   },
+  "debug": {
+    "jlink_device": "LPC1347"
+  },
   "frameworks": [
     "mbed"
   ],
   "name": "DipCortex M3",
   "upload": {
     "maximum_ram_size": 12288,
-    "maximum_size": 65536
+    "maximum_size": 65536,
+    "protocol": "mbed",
+    "protocols": [
+      "jlink",
+      "mbed"
+    ]
   },
   "url": "https://developer.mbed.org/platforms/DipCortex-M3/",
   "vendor": "Solder Splash Labs"

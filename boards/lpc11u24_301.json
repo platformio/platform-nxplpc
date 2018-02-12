@@ -5,15 +5,19 @@
     "mcu": "lpc11u24"
   },
   "debug": {
+    "jlink_device": "LPC11C24/301",
     "tools": {
       "cmsis-dap": {
+        "onboard": true,
         "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
-          "arguments": ["-f", "scripts/board/mbed-lpc11u24.cfg"]
-        },
-        "load_cmd": "preload",
-        "onboard": true
+          "arguments": [
+            "pyocd-gdbserver.py",
+            "-t",
+            "lpc11u24"
+          ],
+          "executable": "$PYTHONEXE",
+          "package": "tool-pyocd"
+        }
       }
     }
   },
@@ -23,7 +27,14 @@
   "name": "ARM mbed LPC11U24 (+CAN)",
   "upload": {
     "maximum_ram_size": 8192,
-    "maximum_size": 32768
+    "maximum_size": 32768,
+    "protocol": "mbed",
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "cmsis-dap",
+      "mbed"
+    ]
   },
   "url": "https://developer.mbed.org/handbook/mbed-NXP-LPC11U24",
   "vendor": "NXP"

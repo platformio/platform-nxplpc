@@ -10,7 +10,11 @@
   "name": "Seeed Arch GPRS V2",
   "upload": {
     "maximum_ram_size": 10240,
-    "maximum_size": 131072
+    "maximum_size": 131072,
+    "protocol": "mbed",
+    "protocols": [
+      "mbed"
+    ]
   },
   "url": "https://www.seeedstudio.com/Arch-GPRS-V2-p-2026.html",
   "vendor": "SeeedStudio"

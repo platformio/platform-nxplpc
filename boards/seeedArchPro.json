@@ -10,16 +10,16 @@
   "debug": {
     "tools": {
       "cmsis-dap": {
+        "onboard": true,
         "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
           "arguments": [
-            "-f", "scripts/interface/cmsis-dap.cfg",
-            "-f", "scripts/target/lpc17xx.cfg"
-          ]
-        },
-        "load_cmd": "preload",
-        "onboard": true
+            "pyocd-gdbserver.py",
+            "-t",
+            "lpc1768"
+          ],
+          "executable": "$PYTHONEXE",
+          "package": "tool-pyocd"
+        }
       }
     }
   },
@@ -29,7 +29,12 @@
   "name": "Seeed Arch Pro",
   "upload": {
     "maximum_ram_size": 65536,
-    "maximum_size": 524288
+    "maximum_size": 524288,
+    "protocol": "mbed",
+    "protocols": [
+      "cmsis-dap",
+      "mbed"
+    ]
   },
   "url": "https://developer.mbed.org/platforms/Seeeduino-Arch-Pro/",
   "vendor": "SeeedStudio"

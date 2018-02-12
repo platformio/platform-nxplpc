@@ -5,18 +5,19 @@
     "mcu": "lpc824"
   },
   "debug": {
+    "jlink_device": "LPC824M201",
     "tools": {
       "cmsis-dap": {
+        "onboard": true,
         "server": {
-          "package": "tool-openocd",
-          "executable": "bin/openocd",
           "arguments": [
-            "-f", "scripts/interface/cmsis-dap.cfg",
-            "-f", "scripts/target/lpc8xx.cfg"
-          ]
-        },
-        "load_cmd": "preload",
-        "onboard": true
+            "pyocd-gdbserver.py",
+            "-t",
+            "lpc824"
+          ],
+          "executable": "$PYTHONEXE",
+          "package": "tool-pyocd"
+        }
       }
     }
   },
@@ -26,7 +27,14 @@
   "name": "LPCXpresso824-MAX",
   "upload": {
     "maximum_ram_size": 8192,
-    "maximum_size": 32768
+    "maximum_size": 32768,
+    "protocol": "mbed",
+    "protocols": [
+      "jlink",
+      "blackmagic",
+      "cmsis-dap",
+      "mbed"
+    ]
   },
   "url": "https://developer.mbed.org/platforms/LPCXpresso824-MAX/",
   "vendor": "NXP"
