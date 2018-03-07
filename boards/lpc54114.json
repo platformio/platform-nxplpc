@@ -1,0 +1,40 @@
+{
+  "build": {
+    "cpu": "cortex-m4",
+    "f_cpu": "100000000L",
+    "mcu": "lpc54114j256bd64"
+  },
+  "debug": {
+    "jlink_device": "LPC54114J256_M4",
+    "tools": {
+      "cmsis-dap": {
+        "onboard": true,
+        "server": {
+          "arguments": [
+            "pyocd-gdbserver.py",
+            "-t",
+            "lpc54114"
+          ],
+          "executable": "$PYTHONEXE",
+          "package": "tool-pyocd"
+        }
+      }
+    }
+  },
+  "frameworks": [
+    "mbed"
+  ],
+  "name": "NXP LPCXpresso54114",
+  "upload": {
+    "maximum_ram_size": 196608,
+    "maximum_size": 262144,
+    "protocol": "mbed",
+    "protocols": [
+      "jlink",
+      "cmsis-dap",
+      "mbed"
+    ]
+  },
+  "url": "https://os.mbed.com/platforms/LPCXpresso54114/",
+  "vendor": "NXP"
+}
