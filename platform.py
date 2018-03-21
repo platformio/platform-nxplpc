@@ -61,10 +61,10 @@ class NxplpcPlatform(PlatformBase):
                     "hwids": [["0x1d50", "0x6018"]],
                     "require_debug_port": True
                 }
-            else:
+            elif link == "jlink":
                 assert debug.get("jlink_device"), (
                     "Missed J-Link Device ID for %s" % board.id)
-                debug['tools']['jlink'] = {
+                debug['tools'][link] = {
                     "server": {
                         "arguments": [
                             "-singlerun",
@@ -76,7 +76,8 @@ class NxplpcPlatform(PlatformBase):
                         "executable": ("JLinkGDBServerCL.exe"
                                        if system() == "Windows" else
                                        "JLinkGDBServer")
-                    }
+                    },
+                    "onboard": link in debug.get("onboard_tools", [])
                 }
 
         board.manifest['debug'] = debug

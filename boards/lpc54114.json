@@ -1,11 +1,11 @@
 {
   "build": {
-    "cpu": "cortex-m0",
-    "f_cpu": "48000000L",
-    "mcu": "lpc11u24"
+    "cpu": "cortex-m4",
+    "f_cpu": "100000000L",
+    "mcu": "lpc54114j256bd64"
   },
   "debug": {
-    "jlink_device": "LPC11C24/301",
+    "jlink_device": "LPC54114J256_M4",
     "tools": {
       "cmsis-dap": {
         "onboard": true,
@@ -13,7 +13,7 @@
           "arguments": [
             "pyocd-gdbserver.py",
             "-t",
-            "lpc11u24"
+            "lpc54114"
           ],
           "executable": "$PYTHONEXE",
           "package": "tool-pyocd"
@@ -24,18 +24,17 @@
   "frameworks": [
     "mbed"
   ],
-  "name": "ARM mbed LPC11U24 (+CAN)",
+  "name": "NXP LPCXpresso54114",
   "upload": {
-    "maximum_ram_size": 8192,
-    "maximum_size": 32768,
+    "maximum_ram_size": 196608,
+    "maximum_size": 262144,
     "protocol": "mbed",
     "protocols": [
       "jlink",
-      "blackmagic",
       "cmsis-dap",
       "mbed"
     ]
   },
-  "url": "https://developer.mbed.org/handbook/mbed-NXP-LPC11U24",
+  "url": "https://os.mbed.com/platforms/LPCXpresso54114/",
   "vendor": "NXP"
 }
