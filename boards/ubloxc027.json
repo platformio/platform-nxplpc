@@ -11,6 +11,7 @@
   ],
   "debug": {
     "jlink_device": "LPC1768",
+    "svd_path": "LPC176x5x_v0.2.svd",
     "tools": {
       "cmsis-dap": {
         "onboard": true,

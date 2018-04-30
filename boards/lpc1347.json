@@ -5,7 +5,8 @@
     "mcu": "lpc1347"
   },
   "debug": {
-    "jlink_device": "LPC1347"
+    "jlink_device": "LPC1347",
+    "svd_path": "LPC13xx_svd_v1.svd"
   },
   "frameworks": [
     "mbed"
