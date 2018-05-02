@@ -6,6 +6,7 @@
   },
   "debug": {
     "jlink_device": "LPC54114J256_M4",
+    "svd_path": "LPC5410x_v0.4.svd",
     "tools": {
       "cmsis-dap": {
         "onboard": true,

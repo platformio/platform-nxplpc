@@ -9,7 +9,10 @@
   ],
   "debug": {
     "jlink_device": "LPC54608J512",
-    "onboard_tools": ["jlink"]
+    "onboard_tools": [
+      "jlink"
+    ],
+    "svd_path": "LPC5410x_v0.4.svd"
   },
   "frameworks": [
     "mbed"

@@ -5,7 +5,8 @@
     "mcu": "lpc11u34"
   },
   "debug": {
-    "jlink_device": "LPC11U34/311"
+    "jlink_device": "LPC11U34/311",
+    "svd_path": "LPC11Uxx_v7.svd"
   },
   "frameworks": [
     "mbed"

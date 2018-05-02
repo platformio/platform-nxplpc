@@ -6,6 +6,7 @@
   },
   "debug": {
     "jlink_device": "LPC4330_M0",
+    "svd_path": "LPC43xx_43Sxx.svd",
     "tools": {
       "cmsis-dap": {
         "onboard": true,

@@ -8,7 +8,8 @@
     "can"
   ],
   "debug": {
-    "jlink_device": "LPC1549"
+    "jlink_device": "LPC1549",
+    "svd_path": "LPC15xx_v0.7.svd"
   },
   "frameworks": [
     "mbed"

@@ -6,6 +6,7 @@
   },
   "debug": {
     "jlink_device": "LPC812M101",
+    "svd_path": "LPC800_v0.3.svd",
     "tools": {
       "cmsis-dap": {
         "load_cmd": "preload",
