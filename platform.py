@@ -31,6 +31,21 @@ class NxplpcPlatform(PlatformBase):
             if upload_protocol == "cmsis-dap":
                 self.packages['tool-pyocd']['type'] = "uploader"
 
+        # configure J-LINK tool
+        jlink_conds = [
+            "jlink" in variables.get(option, "")
+            for option in ("upload_protocol", "debug_tool")
+        ]
+        if variables.get("board"):
+            board_config = self.board_config(variables.get("board"))
+            jlink_conds.extend([
+                "jlink" in board_config.get(key, "")
+                for key in ("debug.default_tools", "upload.protocol")
+            ])
+        jlink_pkgname = "tool-jlink"
+        if not any(jlink_conds) and jlink_pkgname in self.packages:
+            del self.packages[jlink_pkgname]
+
         return PlatformBase.configure_default_packages(self, variables,
                                                        targets)
 
@@ -66,6 +81,7 @@ class NxplpcPlatform(PlatformBase):
                     "Missed J-Link Device ID for %s" % board.id)
                 debug['tools'][link] = {
                     "server": {
+                        "package": "tool-jlink",
                         "arguments": [
                             "-singlerun",
                             "-if", "SWD",
