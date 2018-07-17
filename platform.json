@@ -42,6 +42,11 @@
       "type": "debugger",
       "optional": true,
       "version": "~0.801.0"
+    },
+    "tool-jlink": {
+      "type": "uploader",
+      "optional": true,
+      "version": "^1.63208.0"
     }
   }
 }
