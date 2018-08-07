@@ -102,8 +102,6 @@ AlwaysBuild(target_size)
 #
 
 upload_protocol = env.subst("$UPLOAD_PROTOCOL")
-debug_server = env.BoardConfig().get("debug.tools", {}).get(
-    upload_protocol, {}).get("server")
 upload_actions = []
 
 if upload_protocol == "mbed":
@@ -158,13 +156,26 @@ elif upload_protocol.startswith("blackmagic"):
         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
     ]
 
-elif debug_server and debug_server.get("package") == "tool-pyocd":
-    env.Replace(
-        UPLOADER=join(platform.get_package_dir("tool-pyocd") or "",
-                      "pyocd-flashtool.py"),
-        UPLOADERFLAGS=debug_server.get("arguments", [])[1:],
-        UPLOADCMD='"$PYTHONEXE" "$UPLOADER" $UPLOADERFLAGS $SOURCE'
-    )
+elif upload_protocol == "cmsis-dap":
+    debug_server = env.BoardConfig().get("debug.tools", {}).get(
+        upload_protocol, {}).get("server")
+    assert debug_server
+
+    if debug_server.get("package") == "tool-pyocd":
+        env.Replace(
+            UPLOADER=join(platform.get_package_dir("tool-pyocd") or "",
+                          "pyocd-flashtool.py"),
+            UPLOADERFLAGS=debug_server.get("arguments", [])[1:],
+            UPLOADCMD='"$PYTHONEXE" "$UPLOADER" $UPLOADERFLAGS $SOURCE'
+        )
+    elif debug_server.get("package") == "tool-openocd":
+        env.Replace(
+            UPLOADER="openocd",
+            UPLOADERFLAGS=["-s", platform.get_package_dir("tool-openocd") or ""] +
+            debug_server.get("arguments", []) +
+            ["-c", "program {{$SOURCE}} verify reset; shutdown;"],
+            UPLOADCMD="$UPLOADER $UPLOADERFLAGS"
+        )
     upload_actions = [
         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
     ]
@@ -173,7 +184,7 @@ elif debug_server and debug_server.get("package") == "tool-pyocd":
 elif "UPLOADCMD" in env:
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
-else:
+if not upload_actions:
     sys.stderr.write("Warning! Unknown upload protocol %s\n" % upload_protocol)
 
 AlwaysBuild(env.Alias("upload", target_firm, upload_actions))

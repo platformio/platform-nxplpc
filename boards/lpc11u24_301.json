@@ -6,21 +6,8 @@
   },
   "debug": {
     "jlink_device": "LPC11C24/301",
-    "svd_path": "LPC11Uxx_v7.svd",
-    "tools": {
-      "cmsis-dap": {
-        "onboard": true,
-        "server": {
-          "arguments": [
-            "pyocd-gdbserver.py",
-            "-t",
-            "lpc11u24"
-          ],
-          "executable": "$PYTHONEXE",
-          "package": "tool-pyocd"
-        }
-      }
-    }
+    "pyocd_target": "lpc11u24",
+    "svd_path": "LPC11Uxx_v7.svd"
   },
   "frameworks": [
     "mbed"

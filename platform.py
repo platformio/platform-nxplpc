@@ -68,14 +68,50 @@ class NxplpcPlatform(PlatformBase):
             debug['tools'] = {}
 
         # J-Link / BlackMagic Probe
-        for link in ("blackmagic", "jlink"):
+        for link in ("blackmagic", "cmsis-dap", "jlink"):
             if link not in upload_protocols or link in debug['tools']:
                 continue
+
             if link == "blackmagic":
                 debug['tools']['blackmagic'] = {
                     "hwids": [["0x1d50", "0x6018"]],
                     "require_debug_port": True
                 }
+
+            elif link == "cmsis-dap":
+                if debug.get("pyocd_target"):
+                    pyocd_target = debug.get("pyocd_target")
+                    assert pyocd_target
+                    debug['tools'][link] = {
+                        "onboard": True,
+                        "server": {
+                            "package": "tool-pyocd",
+                            "executable": "$PYTHONEXE",
+                            "arguments": [
+                                "pyocd-gdbserver.py",
+                                "-t",
+                                pyocd_target
+                            ]
+                        }
+                    }
+                else:
+                    openocd_target = debug.get("openocd_target")
+                    assert openocd_target
+                    debug['tools'][link] = {
+                        "load_cmd": "preload",
+                        "onboard": True,
+                        "server": {
+                            "executable": "bin/openocd",
+                            "package": "tool-openocd",
+                            "arguments": [
+                                "-f",
+                                "scripts/interface/cmsis-dap.cfg",
+                                "-f",
+                                "scripts/target/%s.cfg" % openocd_target
+                            ]
+                        }
+                    }
+
             elif link == "jlink":
                 assert debug.get("jlink_device"), (
                     "Missed J-Link Device ID for %s" % board.id)
