@@ -6,21 +6,8 @@
   },
   "debug": {
     "jlink_device": "LPC4330_M0",
-    "svd_path": "LPC43xx_43Sxx.svd",
-    "tools": {
-      "cmsis-dap": {
-        "onboard": true,
-        "server": {
-          "arguments": [
-            "pyocd-gdbserver.py",
-            "-t",
-            "lpc4330"
-          ],
-          "executable": "$PYTHONEXE",
-          "package": "tool-pyocd"
-        }
-      }
-    }
+    "pyocd_target": "lpc4330",
+    "svd_path": "LPC43xx_43Sxx.svd"
   },
   "frameworks": [
     "mbed"

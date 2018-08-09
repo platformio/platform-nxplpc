@@ -9,20 +9,7 @@
   ],
   "debug": {
     "svd_path": "LPC176x5x_v0.2.svd",
-    "tools": {
-      "cmsis-dap": {
-        "onboard": true,
-        "server": {
-          "arguments": [
-            "pyocd-gdbserver.py",
-            "-t",
-            "lpc1768"
-          ],
-          "executable": "$PYTHONEXE",
-          "package": "tool-pyocd"
-        }
-      }
-    }
+    "pyocd_target": "lpc1768"
   },
   "frameworks": [
     "mbed"

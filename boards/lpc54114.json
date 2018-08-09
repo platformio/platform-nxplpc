@@ -6,21 +6,8 @@
   },
   "debug": {
     "jlink_device": "LPC54114J256_M4",
-    "svd_path": "LPC5410x_v0.4.svd",
-    "tools": {
-      "cmsis-dap": {
-        "onboard": true,
-        "server": {
-          "arguments": [
-            "pyocd-gdbserver.py",
-            "-t",
-            "lpc54114"
-          ],
-          "executable": "$PYTHONEXE",
-          "package": "tool-pyocd"
-        }
-      }
-    }
+    "pyocd_target": "lpc54114",
+    "svd_path": "LPC5410x_v0.4.svd"
   },
   "frameworks": [
     "mbed"

@@ -35,34 +35,6 @@ env.Replace(
 
     ARFLAGS=["rc"],
 
-    ASFLAGS=["-x", "assembler-with-cpp"],
-
-    CCFLAGS=[
-        "-Os",  # optimize for size
-        "-ffunction-sections",  # place each function in its own section
-        "-fdata-sections",
-        "-Wall",
-        "-mthumb",
-        "-nostdlib"
-    ],
-
-    CXXFLAGS=[
-        "-fno-rtti",
-        "-fno-exceptions"
-    ],
-
-    CPPDEFINES=[
-        ("F_CPU", "$BOARD_F_CPU")
-    ],
-
-    LINKFLAGS=[
-        "-Os",
-        "-Wl,--gc-sections,--relax",
-        "-mthumb"
-    ],
-
-    LIBS=["c", "gcc", "m"],
-
     SIZEPROGREGEXP=r"^(?:\.text|\.data|\.rodata|\.text.align|\.ARM.exidx)\s+(\d+).*",
     SIZEDATAREGEXP=r"^(?:\.data|\.bss|\.noinit)\s+(\d+).*",
     SIZECHECKCMD="$SIZETOOL -A -d $SOURCES",
@@ -75,19 +47,7 @@ env.Replace(
 if env.get("PROGNAME", "program") == "program":
     env.Replace(PROGNAME="firmware")
 
-if "BOARD" in env:
-    env.Append(
-        CCFLAGS=[
-            "-mcpu=%s" % env.BoardConfig().get("build.cpu")
-        ],
-        LINKFLAGS=[
-            "-mcpu=%s" % env.BoardConfig().get("build.cpu")
-        ]
-    )
-
 env.Append(
-    ASFLAGS=env.get("CCFLAGS", [])[:],
-
     BUILDERS=dict(
         ElfToBin=Builder(
             action=env.VerboseAction(" ".join([
@@ -142,8 +102,6 @@ AlwaysBuild(target_size)
 #
 
 upload_protocol = env.subst("$UPLOAD_PROTOCOL")
-debug_server = env.BoardConfig().get("debug.tools", {}).get(
-    upload_protocol, {}).get("server")
 upload_actions = []
 
 if upload_protocol == "mbed":
@@ -173,7 +131,7 @@ elif upload_protocol.startswith("jlink"):
             "-if", ("jtag" if upload_protocol == "jlink-jtag" else "swd"),
             "-autoconnect", "1"
         ],
-        UPLOADCMD="$UPLOADER $UPLOADERFLAGS -CommanderScript ${__jlink_cmd_script(__env__, SOURCE)}"
+        UPLOADCMD='$UPLOADER $UPLOADERFLAGS -CommanderScript "${__jlink_cmd_script(__env__, SOURCE)}"'
     )
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
@@ -198,13 +156,26 @@ elif upload_protocol.startswith("blackmagic"):
         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
     ]
 
-elif debug_server and debug_server.get("package") == "tool-pyocd":
-    env.Replace(
-        UPLOADER=join(platform.get_package_dir("tool-pyocd") or "",
-                      "pyocd-flashtool.py"),
-        UPLOADERFLAGS=debug_server.get("arguments", [])[1:],
-        UPLOADCMD='"$PYTHONEXE" "$UPLOADER" $UPLOADERFLAGS $SOURCE'
-    )
+elif upload_protocol == "cmsis-dap":
+    debug_server = env.BoardConfig().get("debug.tools", {}).get(
+        upload_protocol, {}).get("server")
+    assert debug_server
+
+    if debug_server.get("package") == "tool-pyocd":
+        env.Replace(
+            UPLOADER=join(platform.get_package_dir("tool-pyocd") or "",
+                          "pyocd-flashtool.py"),
+            UPLOADERFLAGS=debug_server.get("arguments", [])[1:],
+            UPLOADCMD='"$PYTHONEXE" "$UPLOADER" $UPLOADERFLAGS $SOURCE'
+        )
+    elif debug_server.get("package") == "tool-openocd":
+        env.Replace(
+            UPLOADER="openocd",
+            UPLOADERFLAGS=["-s", platform.get_package_dir("tool-openocd") or ""] +
+            debug_server.get("arguments", []) +
+            ["-c", "program {{$SOURCE}} verify reset; shutdown;"],
+            UPLOADCMD="$UPLOADER $UPLOADERFLAGS"
+        )
     upload_actions = [
         env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
     ]
@@ -213,7 +184,7 @@ elif debug_server and debug_server.get("package") == "tool-pyocd":
 elif "UPLOADCMD" in env:
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
-else:
+if not upload_actions:
     sys.stderr.write("Warning! Unknown upload protocol %s\n" % upload_protocol)
 
 AlwaysBuild(env.Alias("upload", target_firm, upload_actions))

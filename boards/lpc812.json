@@ -6,23 +6,8 @@
   },
   "debug": {
     "jlink_device": "LPC812M101",
-    "svd_path": "LPC800_v0.3.svd",
-    "tools": {
-      "cmsis-dap": {
-        "load_cmd": "preload",
-        "onboard": true,
-        "server": {
-          "arguments": [
-            "-f",
-            "scripts/interface/cmsis-dap.cfg",
-            "-f",
-            "scripts/target/lpc8xx.cfg"
-          ],
-          "executable": "bin/openocd",
-          "package": "tool-openocd"
-        }
-      }
-    }
+    "openocd_target": "lpc8xx",
+    "svd_path": "LPC800_v0.3.svd"
   },
   "frameworks": [
     "mbed"
@@ -33,6 +18,7 @@
     "maximum_size": 16384,
     "protocol": "mbed",
     "protocols": [
+      "cmsis-dap",
       "jlink",
       "blackmagic",
       "mbed"
