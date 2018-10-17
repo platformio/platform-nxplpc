@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-nxplpc.git"
   },
-  "version": "3.4.1",
+  "version": "3.5.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json"
@@ -20,7 +20,7 @@
   "frameworks": {
     "mbed": {
       "package": "framework-mbed",
-      "script": "builder/frameworks/mbed/mbed.py"
+      "script": "builder/frameworks/mbed.py"
     }
   },
   "packages": {
@@ -31,7 +31,7 @@
     "framework-mbed": {
       "type": "framework",
       "optional": true,
-      "version": "~5.50904.0"
+      "version": "~5.51001.1"
     },
     "tool-openocd": {
       "type": "debugger",
