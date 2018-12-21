@@ -184,7 +184,7 @@ elif upload_protocol == "cmsis-dap":
     ]
 
 # custom upload tool
-elif "UPLOADCMD" in env:
+elif upload_protocol == "custom":
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
 if not upload_actions:
