@@ -183,7 +183,7 @@ elif upload_protocol == "cmsis-dap":
             UPLOADERFLAGS=["-s", platform.get_package_dir("tool-openocd") or ""] +
             debug_tools.get(upload_protocol).get("server").get("arguments", []) + [
                 "-c",
-                "program {{$SOURCE}} verify reset %s; shutdown;" %
+                "program {$SOURCE} verify reset %s; shutdown;" %
                 env.BoardConfig().get("upload.offset_address", "")
             ],
             UPLOADCMD="$UPLOADER $UPLOADERFLAGS"
