@@ -2,7 +2,10 @@
   "build": {
     "cpu": "cortex-m4",
     "f_cpu": "100000000L",
-    "mcu": "lpc54114j256bd64"
+    "mcu": "lpc54114j256bd64",
+    "zephyr": {
+       "variant": "lpcxpresso54114_m4"
+    }
   },
   "debug": {
     "jlink_device": "LPC54114J256_M4",
@@ -10,7 +13,8 @@
     "svd_path": "LPC5410x_v0.4.svd"
   },
   "frameworks": [
-    "mbed"
+    "mbed",
+    "zephyr"
   ],
   "name": "NXP LPCXpresso54114",
   "upload": {
