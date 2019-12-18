@@ -11,7 +11,7 @@ env:
   - PLATFORMIO_PROJECT_DIR=examples/mbed-serial
   - PLATFORMIO_PROJECT_DIR=examples/mbed-custom-target
   - PLATFORMIO_PROJECT_DIR=examples/zephyr-blink
-  - PLATFORMIO_PROJECT_DIR=examples/zephyr-drivers-watchdog
+  # - PLATFORMIO_PROJECT_DIR=examples/zephyr-drivers-watchdog
   - PLATFORMIO_PROJECT_DIR=examples/zephyr-synchronization
 
 # Zephyr framework doesn't support python 2
