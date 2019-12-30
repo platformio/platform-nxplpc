@@ -15,7 +15,7 @@
 from platform import system
 
 from platformio.managers.platform import PlatformBase
-
+from platformio.util import get_systype
 
 class NxplpcPlatform(PlatformBase):
 
@@ -30,6 +30,15 @@ class NxplpcPlatform(PlatformBase):
                                                     "upload.protocol", ""))
             if upload_protocol == "cmsis-dap":
                 self.packages['tool-pyocd']['type'] = "uploader"
+                
+        if "zephyr" in variables.get("pioframework", []):
+            for p in self.packages:
+                if p.startswith("framework-zephyr-") or p in (
+                    "tool-cmake", "tool-dtc", "tool-ninja"):
+                    self.packages[p]["optional"] = False
+            self.packages['toolchain-gccarmnoneeabi']['version'] = "~1.80201.0"
+            if "windows" not in get_systype():
+                self.packages['tool-gperf']['optional'] = False
 
         # configure J-LINK tool
         jlink_conds = [
