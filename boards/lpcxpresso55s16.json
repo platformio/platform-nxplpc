@@ -1,0 +1,34 @@
+{
+  "build": {
+    "cpu": "cortex-m33",
+    "f_cpu": "150000000L",
+    "mcu": "lpc55s16",
+    "zephyr": {
+      "variant": "lpcxpresso55s16_ns"
+    }
+  },
+  "connectivity": [
+    "ethernet"
+  ],
+  "debug": {
+    "jlink_device": "LPC55S16",
+    "onboard_tools": [
+      "jlink"
+    ]
+  },
+  "frameworks": [
+    "zephyr"
+  ],
+  "name": "NXP LPCXpresso55S16",
+  "upload": {
+    "maximum_ram_size": 98304,
+    "maximum_size": 262144,
+    "protocol": "jlink",
+    "protocols": [
+      "jlink",
+      "mbed"
+    ]
+  },
+  "url": "https://www.nxp.com/design/development-boards/lpcxpresso-boards/lpcxpresso55s16-development-board:LPC55S16-EVK",
+  "vendor": "NXP"
+}
