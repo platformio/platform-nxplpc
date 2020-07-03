@@ -17,9 +17,11 @@ jobs:
           - "examples/mbed-serial"
           - "examples/mbed-custom-target"
           - "examples/zephyr-blink"
+          - "examples/zephyr-custom-board"
           - "examples/zephyr-synchronization"
         exclude:
           - {python-version: 2.7, example: "examples/zephyr-blink"}
+          - {python-version: 2.7, example: "examples/zephyr-custom-board"}
           - {python-version: 2.7, example: "examples/zephyr-synchronization"}
     runs-on: ${{ matrix.os }}
     steps:
