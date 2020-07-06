@@ -20,7 +20,7 @@ How to build PlatformIO based project
 .. code-block:: bash
 
     # Change directory to example
-    > cd platform-nxplpc/examples/zephyr-drivers-watchdog
+    > cd platform-nxplpc/examples/zephyr-custom-board
 
     # Build project
     > platformio run

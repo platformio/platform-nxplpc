@@ -1,0 +1,22 @@
+#
+# Copyright (c) 2020 Henrik Brix Andersen <henrik@brixandersen.dk>
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+identifier: my_custom_board
+name: My custom board based on LPC55S16
+type: mcu
+arch: arm
+ram: 96
+flash: 256
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - arduino_i2c
+  - arduino_spi
+  - gpio
+  - i2c
+  - spi
