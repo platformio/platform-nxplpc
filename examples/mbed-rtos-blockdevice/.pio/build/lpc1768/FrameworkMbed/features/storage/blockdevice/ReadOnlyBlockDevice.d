@@ -1,0 +1,23 @@
+.pio\build\lpc1768\FrameworkMbed\features\storage\blockdevice\ReadOnlyBlockDevice.o: \
+ C:\.platformio\packages\framework-mbed-620\features\storage\blockdevice\ReadOnlyBlockDevice.cpp \
+ .pio/build/lpc1768/mbed_config.h \
+ C:\.platformio\packages\framework-mbed-620\features\storage\blockdevice\ReadOnlyBlockDevice.h \
+ C:\.platformio\packages\framework-mbed-620\features\storage\blockdevice\BlockDevice.h \
+ C:/PLATFO~1/packages/FRAMEW~2/platform/PlatformMutex.h \
+ C:/.platformio/packages/framework-mbed-620/platform/NonCopyable.h \
+ C:/.platformio/packages/framework-mbed-620/rtos/Mutex.h \
+ C:/.platformio/packages/framework-mbed-620/rtos/mbed_rtos_types.h \
+ C:/PLATFO~1/packages/FRAMEW~2/rtos/source/TARGET~1/rtx5/Include/cmsis_os2.h \
+ C:/.platformio/packages/framework-mbed-620/rtos/mbed_rtos1_types.h \
+ C:/PLATFO~1/packages/FRAMEW~2/rtos/source/TARGET~1/rtx4/cmsis_os.h \
+ C:/PLATFO~1/packages/FRAMEW~2/rtos/source/TARGET~1/rtx5/RTX/Include/rtx_os.h \
+ C:/.platformio/packages/framework-mbed-620/rtos/mbed_rtos_storage.h \
+ C:/PLATFO~1/packages/FRAMEW~2/rtos/source/TARGET~1/mbed_rtx_storage.h \
+ C:/PLATFO~1/packages/FRAMEW~2/rtos/source/TARGET~1/mbed_rtx_conf.h \
+ C:/PLATFO~1/packages/FRAMEW~2/targets/TACD73~1/mbed_rtx.h \
+ C:/.platformio/packages/framework-mbed-620/rtos/Kernel.h \
+ C:/.platformio/packages/framework-mbed-620/platform/mbed_toolchain.h \
+ C:/.platformio/packages/framework-mbed-620/platform/mbed_preprocessor.h \
+ C:/.platformio/packages/framework-mbed-620/platform/ScopedLock.h \
+ C:/.platformio/packages/framework-mbed-620/platform/mbed_error.h \
+ C:/.platformio/packages/framework-mbed-620/platform/mbed_retarget.h

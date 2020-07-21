@@ -1,0 +1,31 @@
+{
+  "build": {
+    "cpu": "cortex-m33",
+    "f_cpu": "150000000L",
+    "mcu": "lpc55s69"
+  },
+  "connectivity": [
+    "ethernet"
+  ],
+  "debug": {
+    "jlink_device": "LPC55S69",
+    "onboard_tools": [
+      "jlink"
+    ]
+  },
+  "frameworks": [
+    "mbed"
+  ],
+  "name": "NXP LPCXpresso55S69",
+  "upload": {
+    "maximum_ram_size": 327680,
+    "maximum_size": 655360,
+    "protocol": "jlink",
+    "protocols": [
+      "jlink",
+      "mbed"
+    ]
+  },
+  "url": "https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/general-purpose-mcus/lpc5500-cortex-m33/lpcxpresso55s69-development-board:LPC55S69-EVK",
+  "vendor": "NXP"
+}

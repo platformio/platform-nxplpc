@@ -1,0 +1,21 @@
+.pio\build\lpc1768\FrameworkMbed\rtos\source\TARGET_CORTEX\TOOLCHAIN_GCC_ARM\mbed_boot_gcc_arm.o: \
+ C:\.platformio\packages\framework-mbed-620\rtos\source\TARGET_CORTEX\TOOLCHAIN_GCC_ARM\mbed_boot_gcc_arm.c \
+ .pio/build/lpc1768/mbed_config.h \
+ C:/PLATFO~1/packages/FRAMEW~2/targets/TACD73~1/TARGET~3/device/cmsis.h \
+ C:/PLATFO~1/packages/FRAMEW~2/targets/TACD73~1/TARGET~3/device/LPC17xx.h \
+ C:/PLATFO~1/packages/FRAMEW~2/cmsis/TARGET~2/core_cm3.h \
+ C:/PLATFO~1/packages/FRAMEW~2/cmsis/TARGET~2/cmsis_version.h \
+ C:/PLATFO~1/packages/FRAMEW~2/cmsis/TARGET~2/cmsis_compiler.h \
+ C:/PLATFO~1/packages/FRAMEW~2/cmsis/TARGET~2/cmsis_gcc.h \
+ C:/PLATFO~1/packages/FRAMEW~2/cmsis/TARGET~2/mpu_armv7.h \
+ C:/PLATFO~1/packages/FRAMEW~2/targets/TACD73~1/TARGET~3/device/system_LPC17xx.h \
+ C:/PLATFO~1/packages/FRAMEW~2/targets/TACD73~1/TARGET~3/device/cmsis_nvic.h \
+ C:/PLATFO~1/packages/FRAMEW~2/platform/mbed_toolchain.h \
+ C:/.platformio/packages/framework-mbed-620/platform/mbed_preprocessor.h \
+ C:/PLATFO~1/packages/FRAMEW~2/rtos/source/TARGET~1/mbed_boot.h \
+ C:/PLATFO~1/packages/FRAMEW~2/targets/TACD73~1/mbed_rtx.h \
+ C:/PLATFO~1/packages/FRAMEW~2/rtos/mbed_rtos_storage.h \
+ C:/PLATFO~1/packages/FRAMEW~2/rtos/source/TARGET~1/mbed_rtx_storage.h \
+ C:/PLATFO~1/packages/FRAMEW~2/rtos/source/TARGET~1/rtx5/RTX/Include/rtx_os.h \
+ C:/PLATFO~1/packages/FRAMEW~2/rtos/source/TARGET~1/rtx5/Include/cmsis_os2.h \
+ C:/PLATFO~1/packages/FRAMEW~2/rtos/source/TARGET~1/mbed_rtx_conf.h

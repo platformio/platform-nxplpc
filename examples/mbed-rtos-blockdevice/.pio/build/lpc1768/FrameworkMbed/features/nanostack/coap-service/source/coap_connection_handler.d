@@ -1,0 +1,27 @@
+.pio\build\lpc1768\FrameworkMbed\features\nanostack\coap-service\source\coap_connection_handler.o: \
+ C:\.platformio\packages\framework-mbed-620\features\nanostack\coap-service\source\coap_connection_handler.c \
+ .pio/build/lpc1768/mbed_config.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/NANOST~1/COAP-S~1/source/include/coap_connection_handler.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/NANOST~1/SAL-ST~2/NANOST~1/ns_address.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/FRAMEW~1/NANOST~1/MBED-C~1/ns_types.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/NANOST~1/COAP-S~1/source/include/coap_service_api_internal.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/NANOST~1/COAP-S~1/source/include/coap_message_handler.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/FRAMEW~1/MBED-C~3/mbed-coap/sn_coap_header.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/FRAMEW~1/NANOST~1/MBED-C~1/ns_list.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/FRAMEW~1/NANOST~1/MBED-C~1/ns_types.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/NANOST~1/COAP-S~1/source/include/coap_security_handler.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/mbedtls/inc/mbedtls/config.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/mbedtls/platform/inc/platform_mbed.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/mbedtls/inc/mbedtls/config-no-entropy.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/mbedtls/inc/mbedtls/check_config.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/NANOST~1/COAP-S~1/source/include/coap_security_handler.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/FRAMEW~1/NANOST~1/MBED-C~1/ns_trace.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/FRAMEW~1/MBED-T~1/mbed-trace/mbed_trace.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/FRAMEW~1/NANOST~1/MBED-C~1/nsdynmemLIB.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/NANOST~1/SAL-ST~2/NANOST~1/socket_api.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/NANOST~1/SAL-ST~2/NANOST~1/ns_address.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/NANOST~1/SAL-ST~2/NANOST~1/net_interface.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/NANOST~1/SAL-ST~2/NANOST~1/platform/arm_hal_phy.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/NANOST~1/SAL-ST~1/NANOST~1/eventOS_event_timer.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/NANOST~1/SAL-ST~1/NANOST~1/eventOS_event.h \
+ C:/PLATFO~1/packages/FRAMEW~2/features/NANOST~1/COAP-S~1/source/include/coap_service_api_internal.h
