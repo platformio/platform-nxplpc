@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-nxplpc.git"
   },
-  "version": "5.2.1",
+  "version": "5.3.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json"
@@ -29,12 +29,12 @@
   "packages": {
     "toolchain-gccarmnoneeabi": {
       "type": "toolchain",
-      "version": ">=1.60301.0,<1.80000.0"
+      "version": "~1.80201.0"
     },
     "framework-mbed": {
       "type": "framework",
       "optional": true,
-      "version": "~6.51401.0"
+      "version": "~6.60200.0"
     },
     "framework-zephyr": {
       "type": "framework",

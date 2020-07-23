@@ -12,7 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from platform import system
+import json
+import os
 
 from platformio.managers.platform import PlatformBase
 from platformio.util import get_systype
@@ -24,19 +25,28 @@ class NxplpcPlatform(PlatformBase):
 
     def configure_default_packages(self, variables, targets):
         if variables.get("board"):
+            board = variables.get("board")
             upload_protocol = variables.get("upload_protocol",
                                             self.board_config(
                                                 variables.get("board")).get(
                                                     "upload.protocol", ""))
             if upload_protocol == "cmsis-dap":
                 self.packages['tool-pyocd']['type'] = "uploader"
-                
+
+            if "mbed" in variables.get("pioframework", []):
+                deprecated_boards_file = os.path.join(
+                    self.get_dir(), "misc", "mbed_deprecated_boards.json")
+                if os.path.isfile(deprecated_boards_file):
+                    with open(deprecated_boards_file) as fp:
+                        if board in json.load(fp):
+                            self.packages["framework-mbed"]["version"] = "~6.51504.0"
+                self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
+
         if "zephyr" in variables.get("pioframework", []):
             for p in self.packages:
                 if p.startswith("framework-zephyr-") or p in (
                     "tool-cmake", "tool-dtc", "tool-ninja"):
                     self.packages[p]["optional"] = False
-            self.packages['toolchain-gccarmnoneeabi']['version'] = "~1.80201.0"
             if "windows" not in get_systype():
                 self.packages['tool-gperf']['optional'] = False
 
@@ -134,7 +144,7 @@ class NxplpcPlatform(PlatformBase):
                             "-port", "2331"
                         ],
                         "executable": ("JLinkGDBServerCL.exe"
-                                       if system() == "Windows" else
+                                       if "windows" in get_systype() else
                                        "JLinkGDBServer")
                     },
                     "onboard": link in debug.get("onboard_tools", [])

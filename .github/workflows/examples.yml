@@ -10,12 +10,14 @@ jobs:
         os: [ubuntu-16.04, windows-latest, macos-latest]
         python-version: [2.7, 3.7]
         example:
-          - "examples/mbed-blink"
-          - "examples/mbed-dsp"
-          - "examples/mbed-events"
-          - "examples/mbed-rtos"
-          - "examples/mbed-serial"
-          - "examples/mbed-custom-target"
+          - "examples/mbed-rtos-blink-baremetal"
+          - "examples/mbed-rtos-blockdevice"
+          - "examples/mbed-rtos-thread-statistics"
+          - "examples/mbed-legacy-examples/mbed-blink"
+          - "examples/mbed-legacy-examples/mbed-dsp"
+          - "examples/mbed-legacy-examples/mbed-events"
+          - "examples/mbed-legacy-examples/mbed-rtos"
+          - "examples/mbed-legacy-examples/mbed-serial"
           - "examples/zephyr-blink"
           - "examples/zephyr-custom-board"
           - "examples/zephyr-synchronization"
