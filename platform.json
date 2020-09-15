@@ -18,7 +18,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-nxplpc.git"
   },
-  "version": "5.3.0",
+  "version": "5.3.1",
   "frameworks": {
     "mbed": {
       "package": "framework-mbed",
