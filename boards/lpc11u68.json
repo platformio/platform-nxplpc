@@ -2,7 +2,10 @@
   "build": {
     "cpu": "cortex-m0plus",
     "f_cpu": "50000000L",
-    "mcu": "lpc11u68"
+    "mcu": "lpc11u68",
+    "zephyr": {
+       "variant": "lpcxpresso11u68"
+    }
   },
   "debug": {
     "jlink_device": "LPC11U68",
@@ -10,7 +13,8 @@
     "svd_path": "LPC11Uxx_v7.svd"
   },
   "frameworks": [
-    "mbed"
+    "mbed",
+    "zephyr"
   ],
   "name": "LPCXpresso11U68",
   "upload": {
@@ -24,6 +28,6 @@
       "mbed"
     ]
   },
-  "url": "https://developer.mbed.org/platforms/LPCXpresso11U68/",
+  "url": "https://www.nxp.com/design/microcontrollers-developer-resources/lpc-microcontroller-utilities/lpcxpresso-board-for-lpc11u68:OM13058",
   "vendor": "NXP"
 }
