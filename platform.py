@@ -39,7 +39,7 @@ class NxplpcPlatform(PlatformBase):
                 if os.path.isfile(deprecated_boards_file):
                     with open(deprecated_boards_file) as fp:
                         if board in json.load(fp):
-                            self.packages["framework-mbed"]["version"] = "~6.51504.0"
+                            self.packages["framework-mbed"]["version"] = "~6.51506.0"
                 self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
 
         if "zephyr" in variables.get("pioframework", []):
@@ -110,7 +110,8 @@ class NxplpcPlatform(PlatformBase):
                                 "pyocd-gdbserver.py",
                                 "-t",
                                 pyocd_target
-                            ]
+                            ],
+                            "ready_pattern": "GDB server started on port"
                         }
                     }
                 else:
