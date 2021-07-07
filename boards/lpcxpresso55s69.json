@@ -2,7 +2,10 @@
   "build": {
     "cpu": "cortex-m33",
     "f_cpu": "150000000L",
-    "mcu": "lpc55s69"
+    "mcu": "lpc55s69",
+    "zephyr": {
+      "variant": "lpcxpresso55s69_ns"
+    }
   },
   "connectivity": [
     "ethernet"
@@ -14,7 +17,8 @@
     ]
   },
   "frameworks": [
-    "mbed"
+    "mbed",
+    "zephyr"
   ],
   "name": "NXP LPCXpresso55S69",
   "upload": {
