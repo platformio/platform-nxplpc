@@ -2,10 +2,7 @@
   "build": {
     "cpu": "cortex-m33",
     "f_cpu": "150000000L",
-    "mcu": "lpc55s16",
-    "zephyr": {
-      "variant": "lpcxpresso55s16_ns"
-    }
+    "mcu": "lpc55s16"
   },
   "connectivity": [
     "ethernet"
