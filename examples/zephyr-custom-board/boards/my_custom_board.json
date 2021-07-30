@@ -4,7 +4,7 @@
     "f_cpu": "150000000L",
     "mcu": "lpc55s16",
     "zephyr": {
-      "variant": "lpcxpresso55s16_ns"
+      "variant": "lpcxpresso55s16"
     }
   },
   "connectivity": [

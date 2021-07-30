@@ -15,10 +15,29 @@
 import sys
 from platform import system
 from os import makedirs
-from os.path import isdir, join
+from os.path import isdir, isfile, join
+from struct import unpack, pack
 
 from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
                           Builder, Default, DefaultEnvironment)
+
+
+def add_image_checksum(source, target, env):
+    # According to https://community.nxp.com/t5/LPCXpresso-IDE-FAQs/LPC-Image-Checksums/m-p/471035
+    # NXP LPC parts use a word in the vector table of the processor to store a checksum
+    # that is examined by the bootloader to identify a valid image.
+    bin_path = target[0].path
+    if isfile(bin_path):
+        # From https://github.com/ARMmbed/mbed-os/blob/master/tools/targets/LPC.py
+        with open(bin_path, "r+b") as fp:
+            # Read entries 0 through 6 (Little Endian 32bits words)
+            vector = [unpack("<I", fp.read(4))[0] for _ in range(7)]
+
+            # location 7 (offset 0x1C in the vector table) should contain the 2"s
+            # complement of the check-sum of table entries 0 through 6
+            fp.seek(0x1C)
+            fp.write(pack("<I", (~sum(vector) + 1) & 0xFFFFFFFF))
+
 
 env = DefaultEnvironment()
 env.SConscript("compat.py", exports="env")
@@ -97,6 +116,8 @@ if "nobuild" in COMMAND_LINE_TARGETS:
 else:
     target_elf = env.BuildProgram()
     target_firm = env.ElfToBin(join("$BUILD_DIR", "${PROGNAME}"), target_elf)
+    env.AddPostAction(target_firm, env.VerboseAction(
+        add_image_checksum, "Adding checksum to $TARGET"))
     env.Depends(target_firm, "checkprogsize")
 
 AlwaysBuild(env.Alias("nobuild", target_firm))
