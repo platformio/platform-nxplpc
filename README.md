@@ -1,4 +1,4 @@
-# NXP LPC: development platform for [PlatformIO](http://platformio.org)
+# NXP LPC: development platform for [PlatformIO](https://platformio.org)
 
 [![Build Status](https://github.com/platformio/platform-nxplpc/workflows/Examples/badge.svg)](https://github.com/platformio/platform-nxplpc/actions)
 
@@ -9,7 +9,7 @@ The NXP LPC is a family of 32-bit microcontroller integrated circuits by NXP Sem
 
 # Usage
 
-1. [Install PlatformIO](http://platformio.org)
+1. [Install PlatformIO](https://platformio.org)
 2. Create PlatformIO project and configure a platform option in [platformio.ini](https://docs.platformio.org/page/projectconf.html) file:
 
 ## Stable version
