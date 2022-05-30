@@ -40,7 +40,6 @@ def add_image_checksum(source, target, env):
 
 
 env = DefaultEnvironment()
-env.SConscript("compat.py", exports="env")
 platform = env.PioPlatform()
 board = env.BoardConfig()
 

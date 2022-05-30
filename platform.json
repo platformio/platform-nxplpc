@@ -12,13 +12,13 @@
     "LPC"
   ],
   "engines": {
-    "platformio": "^5"
+    "platformio": "^6"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/platformio/platform-nxplpc.git"
   },
-  "version": "9.1.0",
+  "version": "9.2.0",
   "frameworks": {
     "mbed": {
       "package": "framework-mbed",
