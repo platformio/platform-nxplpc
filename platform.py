@@ -125,7 +125,7 @@ class NxplpcPlatform(PlatformBase):
                             "executable": "bin/openocd",
                             "package": "tool-openocd",
                             "arguments": [
-                                "-s", "$PACKAGE_DIR/scripts",
+                                "-s", "$PACKAGE_DIR/openocd/scripts",
                                 "-f", "interface/cmsis-dap.cfg",
                                 "-f", "target/%s.cfg" % openocd_target
                             ]
