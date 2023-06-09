@@ -37,12 +37,6 @@ class NxplpcPlatform(PlatformBase):
                 self.packages["tool-pyocd"]["type"] = "uploader"
 
             if "mbed" in variables.get("pioframework", []):
-                deprecated_boards_file = os.path.join(
-                    self.get_dir(), "misc", "mbed_deprecated_boards.json")
-                if os.path.isfile(deprecated_boards_file):
-                    with open(deprecated_boards_file) as fp:
-                        if board in json.load(fp):
-                            self.packages["framework-mbed"]["version"] = "~6.51506.0"
                 self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
 
         if "zephyr" in variables.get("pioframework", []):

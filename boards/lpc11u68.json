@@ -13,7 +13,6 @@
     "svd_path": "LPC11Uxx_v7.svd"
   },
   "frameworks": [
-    "mbed",
     "zephyr"
   ],
   "name": "LPCXpresso11U68",
