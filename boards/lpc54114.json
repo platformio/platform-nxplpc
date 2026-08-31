@@ -4,7 +4,7 @@
     "f_cpu": "100000000L",
     "mcu": "lpc54114j256bd64",
     "zephyr": {
-       "variant": "lpcxpresso54114_m4"
+      "variant": "lpcxpresso54114/lpc54114/m4"
     }
   },
   "debug": {
