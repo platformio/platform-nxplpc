@@ -40,6 +40,7 @@ class NxplpcPlatform(PlatformBase):
                 self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.90201.0"
 
         if "zephyr" in variables.get("pioframework", []):
+            self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.120301.0"
             for p in self.packages:
                 if p in ("tool-cmake", "tool-dtc", "tool-ninja"):
                     self.packages[p]["optional"] = False
